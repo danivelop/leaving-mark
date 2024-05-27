@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
-import { ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline'
+import { Inter } from "next/font/google";
+import "./globals.css";
 
-import theme from '@/theme';
-import { Navigation } from '@/widget/navigation';
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "danivelop's blog",
@@ -18,15 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        <AppRouterCacheProvider>
-          <ThemeProvider theme={theme}>
-            <CssBaseline enableColorScheme />
-            <Navigation />
-            {children}
-          </ThemeProvider>
-        </AppRouterCacheProvider>
-      </body>
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }
