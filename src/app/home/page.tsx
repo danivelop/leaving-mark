@@ -1,5 +1,5 @@
 function HomePage() {
-  return 'hello world'
+  return 'hello world';
 }
 
-export default HomePage
+export default HomePage;

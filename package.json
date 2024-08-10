@@ -6,7 +6,16 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "pre-commit": "sh .husky/pre-commit",
+    "typecheck": "tsc --noEmit",
+    "lint-staged": "lint-staged",
+    "find-unused-deps": "depcheck",
+    "find-deadcode": "ts-prune -e"
+  },
+  "engines": {
+    "node": "18.17.1",
+    "pnpm": "8.7.0"
   },
   "dependencies": {
     "@heroicons/react": "^2.1.5",
@@ -18,10 +27,26 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@typescript-eslint/eslint-plugin": "^8.0.1",
+    "@typescript-eslint/parser": "^8.0.1",
+    "depcheck": "^1.4.7",
     "eslint": "^8",
+    "eslint-config-airbnb": "^19.0.4",
     "eslint-config-next": "14.2.5",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsx-a11y": "^6.9.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react": "^7.35.0",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-typescript-sort-keys": "^3.2.0",
+    "husky": "^9.1.4",
+    "lint-staged": "^15.2.8",
     "postcss": "^8",
+    "prettier": "^3.3.3",
     "tailwindcss": "^3.4.1",
+    "ts-prune": "^0.10.3",
     "typescript": "^5"
   }
 }
