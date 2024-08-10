@@ -1,0 +1,9 @@
+{
+  "ignores": [
+    "@types/node",
+    "@types/react",
+    "@types/react-dom",
+    "husky",
+    "postcss"
+  ]
+}
