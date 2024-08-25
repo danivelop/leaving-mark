@@ -8,6 +8,12 @@ type Metadata = {
   title: string;
 };
 
+export type Post = {
+  content: string;
+  metadata: Metadata;
+  slug: string;
+};
+
 function parseFrontmatter(fileContent: string) {
   const frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
   const match = frontmatterRegex.exec(fileContent);
@@ -27,10 +33,10 @@ function parseFrontmatter(fileContent: string) {
 }
 
 function getPostDir() {
-  return path.join(process.cwd(), 'src', 'posts');
+  return path.join(process.cwd(), 'posts');
 }
 
-export function getPost(fileName: string) {
+export function getPost(fileName: string): Post {
   const postDir = getPostDir();
   const postPath = path.join(postDir, `${fileName}.mdx`);
   const rawContent = fs.readFileSync(postPath, 'utf-8');

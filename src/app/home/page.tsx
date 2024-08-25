@@ -1,5 +1,17 @@
+import { PostItem, getPosts } from '@/entities/post';
+
 function HomePage() {
-  return 'hello world';
+  const posts = getPosts();
+
+  return (
+    <main>
+      <ul>
+        {posts.map((post) => (
+          <PostItem key={post.slug} post={post} />
+        ))}
+      </ul>
+    </main>
+  );
 }
 
 export default HomePage;
