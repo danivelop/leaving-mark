@@ -1,15 +1,9 @@
-import { PostItem, getPosts } from '@/entities/post';
+import { PostList } from '@/features/post-list';
 
 function HomePage() {
-  const posts = getPosts();
-
   return (
-    <main>
-      <ul>
-        {posts.map((post) => (
-          <PostItem key={post.slug} post={post} />
-        ))}
-      </ul>
+    <main className="lg:mx-auto lg:w-[1024px] px-4 sm:px-6 lg:px-8">
+      <PostList />
     </main>
   );
 }

@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+import type { PluginAPI } from 'tailwindcss/types/config';
 
 const config: Config = {
   mode: 'jit',
@@ -17,6 +18,19 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    ({ addUtilities }: PluginAPI) => {
+      const newUtilities = {
+        '.line-clamp-3': {
+          display: '-webkit-box',
+          '-webkit-box-orient': 'vertical',
+          '-webkit-line-clamp': '3',
+          'line-clamp': '3',
+        },
+      };
+
+      addUtilities(newUtilities);
+    },
+  ],
 };
 export default config;

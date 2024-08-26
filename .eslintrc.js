@@ -87,6 +87,7 @@ module.exports = {
     '@typescript-eslint/no-shadow': 'error',
     'jsx-a11y/control-has-associated-label': 'off',
     'import/prefer-default-export': 'off',
+    '@typescript-eslint/ban-ts-comment': 'off',
   },
   overrides: [
     {
