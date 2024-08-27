@@ -11,14 +11,14 @@ import Link from 'next/link';
 
 function SmallNavMenu() {
   return (
-    <Popover>
+    <Popover className="md:hidden ml-4">
       {({ open, close }) => (
         <>
-          <PopoverButton className="md:hidden p-1 rounded-lg hover:bg-slate-100 focus:outline-none">
+          <PopoverButton className="p-1 rounded-lg hover:bg-slate-100 focus:outline-none relative z-50">
             {open ? (
-              <XMarkIcon className="size-5" />
+              <XMarkIcon className="size-6" />
             ) : (
-              <Bars3Icon className="size-5" />
+              <Bars3Icon className="size-6" />
             )}
           </PopoverButton>
           <PopoverBackdrop className="fixed inset-0 bg-slate-300/50 duration-150 data-[closed]:opacity-0 data-[enter]:ease-out data-[leave]:ease-in" />
@@ -29,15 +29,15 @@ function SmallNavMenu() {
               maxWidth: 'calc(100% - 2rem)',
               marginLeft: '-1rem',
             }}
-            className="md:hidden absolute inset-x-0 mt-4 origin-top rounded-2xl bg-white p-4 shadow-xl ring-1 ring-slate-900/5 data-[closed]:scale-95 data-[closed]:opacity-0 data-[enter]:duration-150 data-[leave]:duration-100 data-[enter]:ease-out data-[leave]:ease-in"
+            className="absolute inset-x-0 mt-4 origin-top rounded-2xl bg-white p-4 shadow-xl ring-1 ring-slate-900/5 data-[closed]:scale-95 data-[closed]:opacity-0 data-[enter]:duration-150 data-[leave]:duration-100 data-[enter]:ease-out data-[leave]:ease-in"
           >
             <nav className="flex flex-col">
               <Link
-                href="/home"
+                href="/posts"
                 className="inline-block rounded-lg px-2 py-1 text-lg tracking-tight text-slate-700 hover:bg-slate-100 hover:text-slate-900"
                 onClick={close}
               >
-                Home
+                Posts
               </Link>
               <Link
                 href="/project"

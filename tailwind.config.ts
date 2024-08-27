@@ -3,6 +3,7 @@ import type { PluginAPI } from 'tailwindcss/types/config';
 
 const config: Config = {
   mode: 'jit',
+  darkMode: 'selector',
   purge: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   content: [
     './src/**/*.{js,ts,jsx,tsx,mdx}',
