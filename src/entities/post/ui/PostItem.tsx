@@ -24,7 +24,7 @@ function PostItem({ post }: PostItemProps) {
       />
       <div className="flex flex-col overflow-x-hidden px-2 xs:justify-between xs:px-0 xs:py-1 md:py-2">
         <div className="flex flex-col">
-          <h1 className="ellipsis text-xl font-bold md:text-2xl">
+          <h1 className="ellipsis text-xl text-neutral-700 font-bold md:text-2xl">
             {post.metadata.title}
           </h1>
           {!!post.content && (

@@ -5,19 +5,19 @@ function LargeNavMenu() {
     <nav className="hidden md:flex gap-8 mr-12">
       <Link
         href="/posts"
-        className="inline-block rounded-lg px-2 py-1 font-bold text-lg text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+        className="inline-block rounded-lg px-2 py-1 text-lg text-slate-700 hover:bg-slate-100 hover:text-slate-900"
       >
         Posts
       </Link>
       <Link
         href="/project"
-        className="inline-block rounded-lg px-2 py-1 font-bold text-lg text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+        className="inline-block rounded-lg px-2 py-1 text-lg text-slate-700 hover:bg-slate-100 hover:text-slate-900"
       >
         Project
       </Link>
       <Link
         href="/about"
-        className="inline-block rounded-lg px-2 py-1 font-bold text-lg text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+        className="inline-block rounded-lg px-2 py-1 text-lg text-slate-700 hover:bg-slate-100 hover:text-slate-900"
       >
         About
       </Link>

@@ -14,7 +14,7 @@ function SmallNavMenu() {
     <Popover className="md:hidden ml-4">
       {({ open, close }) => (
         <>
-          <PopoverButton className="p-1 rounded-lg hover:bg-slate-100 focus:outline-none relative z-50">
+          <PopoverButton className="p-1 rounded-lg hover:bg-slate-100 focus:outline-none relative z-50 text-neutral-700">
             {open ? (
               <XMarkIcon className="size-6" />
             ) : (
