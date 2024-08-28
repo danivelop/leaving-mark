@@ -88,7 +88,7 @@ function Li({ children }) {
 function Anchor({ children }) {
   return (
     // eslint-disable-next-line jsx-a11y/anchor-is-valid
-    <a className="text-zinc-700">{children}</a>
+    <a>{children}</a>
   );
 }
 
@@ -100,8 +100,17 @@ function Blockquote({ children }) {
   return <blockquote className="inline">{children}</blockquote>;
 }
 
+function Pre({ children }) {
+  return children;
+}
+
 function Code({ children }) {
-  return <code className="inline">{children}</code>;
+  return (
+    <code className="inline">
+      {children}
+      <br />
+    </code>
+  );
 }
 
 function MDXFullParser({ source }: MDXParserProps) {
@@ -122,6 +131,7 @@ function MDXFullParser({ source }: MDXParserProps) {
         a: Anchor,
         img: Image,
         blockquote: Blockquote,
+        pre: Pre,
         code: Code,
       }}
     />

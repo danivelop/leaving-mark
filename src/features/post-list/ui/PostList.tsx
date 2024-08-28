@@ -4,7 +4,7 @@ function PostList() {
   const posts = getPosts();
 
   return (
-    <ul className="space-y-5">
+    <ul className="space-y-16 xs:space-y-20 md:xs:space-y-24">
       {posts.map((post) => (
         <PostItem key={post.slug} post={post} />
       ))}

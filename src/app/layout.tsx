@@ -1,6 +1,7 @@
 import { Inter } from 'next/font/google';
 import './globals.css';
 
+import { Footer } from '@/widgets/footer';
 import { Header } from '@/widgets/header';
 
 import type { Metadata } from 'next';
@@ -24,6 +25,7 @@ export default function RootLayout({
       >
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

@@ -12,6 +12,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        'xs': '480px',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
@@ -20,8 +23,18 @@ const config: Config = {
     },
   },
   plugins: [
+    require('@tailwindcss/aspect-ratio'),
     ({ addUtilities }: PluginAPI) => {
       const newUtilities = {
+        '.word-style': {
+          'word-break': 'break-word',
+          'overflow-wrap': 'break-word',
+        },
+        '.ellipsis': {
+          'text-overflow': 'ellipsis',
+          'overflow': 'hidden',
+          'white-space': 'nowrap',
+        },
         '.line-clamp-3': {
           display: '-webkit-box',
           '-webkit-box-orient': 'vertical',
