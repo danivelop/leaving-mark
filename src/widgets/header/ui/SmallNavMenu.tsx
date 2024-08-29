@@ -14,14 +14,17 @@ function SmallNavMenu() {
     <Popover className="md:hidden ml-4">
       {({ open, close }) => (
         <>
-          <PopoverButton className="p-1 rounded-lg hover:bg-slate-100 focus:outline-none relative z-50 text-neutral-700">
+          <PopoverButton className="p-1 rounded-lg focus:outline-none relative z-50 text-neutral-700">
             {open ? (
               <XMarkIcon className="size-6" />
             ) : (
               <Bars3Icon className="size-6" />
             )}
           </PopoverButton>
-          <PopoverBackdrop className="fixed inset-0 bg-slate-300/50 duration-150 data-[closed]:opacity-0 data-[enter]:ease-out data-[leave]:ease-in" />
+          <PopoverBackdrop
+            transition
+            className="fixed inset-0 bg-slate-300/50 duration-150 data-[closed]:opacity-0 data-[enter]:ease-out data-[leave]:ease-in"
+          />
           <PopoverPanel
             transition
             anchor="bottom start"
@@ -34,21 +37,21 @@ function SmallNavMenu() {
             <nav className="flex flex-col">
               <Link
                 href="/posts"
-                className="inline-block rounded-lg px-2 py-1 text-lg tracking-tight text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+                className="inline-block rounded-lg px-2 py-1 text-lg text-slate-700 hover:bg-slate-100 hover:text-slate-900"
                 onClick={close}
               >
                 Posts
               </Link>
               <Link
                 href="/project"
-                className="inline-block rounded-lg px-2 py-1 text-lg tracking-tight text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+                className="inline-block rounded-lg px-2 py-1 text-lg text-slate-700 hover:bg-slate-100 hover:text-slate-900"
                 onClick={close}
               >
                 Project
               </Link>
               <Link
                 href="/about"
-                className="inline-block rounded-lg px-2 py-1 text-lg tracking-tight text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+                className="inline-block rounded-lg px-2 py-1 text-lg text-slate-700 hover:bg-slate-100 hover:text-slate-900"
                 onClick={close}
               >
                 About
