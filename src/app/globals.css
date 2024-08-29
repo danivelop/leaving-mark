@@ -21,7 +21,10 @@ body {
 }
 
 @layer utilities {
-  .responsive-layout-width {
+  .layout-width {
     @apply md:mx-auto md:w-[768px] px-4 sm:px-6;
+  }
+  .layout-background-color {
+    @apply bg-white dark:bg-zinc-800 transition-colors duration-200
   }
 }

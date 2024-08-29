@@ -5,8 +5,8 @@ import SmallNavMenu from './SmallNavMenu';
 
 function Header() {
   return (
-    <header className=" w-full py-10">
-      <div className="responsive-layout-width flex justify-between items-center">
+    <header className="layout-background-color w-full py-10 sticky top-0 left-0 right-0">
+      <div className="layout-width flex justify-between items-center">
         <div className="flex items-center">
           <h1 className="text-2xl text-neutral-700">Danivelop</h1>
         </div>
