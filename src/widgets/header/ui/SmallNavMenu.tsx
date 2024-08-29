@@ -8,8 +8,11 @@ import {
 } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/20/solid';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 function SmallNavMenu() {
+  const pathname = usePathname();
+
   return (
     <Popover className="md:hidden ml-4">
       {({ open, close }) => (
@@ -37,21 +40,21 @@ function SmallNavMenu() {
             <nav className="flex flex-col">
               <Link
                 href="/posts"
-                className="inline-block rounded-lg px-2 py-1 text-lg text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+                className={`${pathname.startsWith('/posts') && 'font-bold text-slate-900'} inline-block rounded-lg px-2 py-1 text-lg text-slate-700 hover:bg-slate-100 hover:text-slate-900`}
                 onClick={close}
               >
                 Posts
               </Link>
               <Link
                 href="/project"
-                className="inline-block rounded-lg px-2 py-1 text-lg text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+                className={`${pathname.startsWith('/project') && 'font-bold text-slate-900'} inline-block rounded-lg px-2 py-1 text-lg text-slate-700 hover:bg-slate-100 hover:text-slate-900`}
                 onClick={close}
               >
                 Project
               </Link>
               <Link
                 href="/about"
-                className="inline-block rounded-lg px-2 py-1 text-lg text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+                className={`${pathname.startsWith('/about') && 'font-bold text-slate-900'} inline-block rounded-lg px-2 py-1 text-lg text-slate-700 hover:bg-slate-100 hover:text-slate-900`}
                 onClick={close}
               >
                 About
