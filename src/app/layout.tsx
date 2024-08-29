@@ -20,9 +20,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} layout-background-color`}>
+      <body
+        className={`${inter.className} layout-background-color min-h-dvh flex flex-col`}
+      >
         <Header />
-        {children}
+        <main className="flex-grow">{children}</main>
         <Footer />
       </body>
     </html>

@@ -86,10 +86,7 @@ function Li({ children }) {
 }
 
 function Anchor({ children }) {
-  return (
-    // eslint-disable-next-line jsx-a11y/anchor-is-valid
-    <a>{children}</a>
-  );
+  return <span>{children}</span>;
 }
 
 function Image() {
