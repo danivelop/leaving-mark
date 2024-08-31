@@ -2,33 +2,34 @@
 /* eslint-disable */
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import remarkGfm from 'remark-gfm';
+import { replaceSpacesWithDash } from '@/shared/lib';
 
 interface MDXParserProps {
   source: string;
 }
 
 function H1({ children }) {
-  return <h1>{children}</h1>;
+  return <h1 id={replaceSpacesWithDash(children)}>{children}</h1>;
 }
 
 function H2({ children }) {
-  return <h2>{children}</h2>;
+  return <h2 id={replaceSpacesWithDash(children)}>{children}</h2>;
 }
 
 function H3({ children }) {
-  return <h3>{children}</h3>;
+  return <h3 id={replaceSpacesWithDash(children)}>{children}</h3>;
 }
 
 function H4({ children }) {
-  return <h4>{children}</h4>;
+  return <h4 id={replaceSpacesWithDash(children)}>{children}</h4>;
 }
 
 function H5({ children }) {
-  return <h5>{children}</h5>;
+  return <h5 id={replaceSpacesWithDash(children)}>{children}</h5>;
 }
 
 function H6({ children }) {
-  return <h6>{children}</h6>;
+  return <h6 id={replaceSpacesWithDash(children)}>{children}</h6>;
 }
 
 function Anchor({ children, ...props }) {
