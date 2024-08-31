@@ -1,6 +1,5 @@
 // @ts-nocheck
 import { MDXRemote } from 'next-mdx-remote/rsc';
-import remarkGfm from 'remark-gfm';
 
 interface MDXParserProps {
   source: string;
@@ -60,7 +59,10 @@ function H6({ children }) {
   );
 }
 
-function P({ children }) {
+function Paragraph({ children }) {
+  if (!children) {
+    return null;
+  }
   return (
     <p className="inline">
       {children}
@@ -94,6 +96,10 @@ function Image() {
   return null;
 }
 
+function Video() {
+  return null;
+}
+
 function Blockquote({ children }) {
   return <blockquote className="inline">{children}</blockquote>;
 }
@@ -117,8 +123,6 @@ function MDXFullParser({ source }: MDXParserProps) {
       source={source}
       options={{
         mdxOptions: {
-          remarkPlugins: [remarkGfm],
-          rehypePlugins: [],
           format: 'md',
         },
       }}
@@ -129,12 +133,13 @@ function MDXFullParser({ source }: MDXParserProps) {
         h4: H4,
         h5: H5,
         h6: H6,
-        p: P,
+        p: Paragraph,
         ul: Ul,
         ol: Ol,
         li: Li,
         a: Anchor,
         img: Image,
+        video: Video,
         blockquote: Blockquote,
         pre: Pre,
         code: Code,

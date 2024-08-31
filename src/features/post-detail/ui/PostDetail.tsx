@@ -6,9 +6,9 @@ interface PostDetailProps {
 
 function PostDetail({ slug }: PostDetailProps) {
   return (
-    <div className="layout-width">
+    <section>
       <Post slug={slug} />
-    </div>
+    </section>
   );
 }
 

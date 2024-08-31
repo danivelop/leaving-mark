@@ -1,3 +1,6 @@
+/* eslint-disable global-require */
+/* eslint-disable @typescript-eslint/no-require-imports */
+/* eslint-disable import/no-extraneous-dependencies */
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
@@ -21,5 +24,6 @@ const config: Config = {
       },
     },
   },
+  plugins: [require('@tailwindcss/typography')],
 };
 export default config;
