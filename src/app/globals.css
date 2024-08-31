@@ -22,9 +22,27 @@ body {
 
 @layer utilities {
   .layout-width {
-    @apply md:mx-auto md:w-[768px] px-4 sm:px-6;
+    @apply md:mx-auto md:w-[768px] px-4 sm:px-6 overflow-hidden;
   }
   .layout-background-color {
     @apply bg-white dark:bg-zinc-800 transition-colors duration-200
+  }
+  .word-style {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  .ellipsis {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+  pre code {
+    @apply w-full inline-block overflow-x-auto;
   }
 }

@@ -1,2 +1,1 @@
-export { getPost, getPosts } from './postUtils';
-export type { Post } from './postUtils';
+export { getPostDir, getPost } from './postUtils';

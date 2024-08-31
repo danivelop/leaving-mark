@@ -1,3 +1,5 @@
+import { PostDetail } from '@/features/post-detail';
+
 interface PostPageProps {
   params: {
     slug: string;
@@ -5,7 +7,7 @@ interface PostPageProps {
 }
 
 function PostPage({ params }: PostPageProps) {
-  return <div>Post: {params.slug}</div>;
+  return <PostDetail slug={params.slug} />;
 }
 
 export default PostPage;

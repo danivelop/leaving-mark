@@ -7,7 +7,7 @@ type Metadata = {
   title: string;
 };
 
-export type Post = {
+type Post = {
   content: string;
   metadata: Metadata;
   slug: string;
@@ -31,7 +31,7 @@ function parseFrontmatter(fileContent: string) {
   return { metadata: metadata as Metadata, content };
 }
 
-function getPostDir() {
+export function getPostDir() {
   return path.join(process.cwd(), 'posts');
 }
 
@@ -46,15 +46,4 @@ export function getPost(fileName: string): Post {
     content,
     slug: fileName,
   };
-}
-
-export function getPosts() {
-  const postDir = getPostDir();
-  const posts = fs
-    .readdirSync(postDir)
-    .filter((post) => path.extname(post) === '.mdx');
-
-  return posts.map((post) => {
-    return getPost(path.basename(post, path.extname(post)));
-  });
 }

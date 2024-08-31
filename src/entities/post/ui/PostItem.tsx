@@ -1,17 +1,17 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { getPost } from '@/entities/post/lib';
 import { formatDate } from '@/shared/lib';
 
 import MDXThumbParser from './MDXThumbParser';
 
-import type { Post } from '@/entities/post';
-
 interface PostItemProps {
-  post: Post;
+  postFileName: string;
 }
 
-function PostItem({ post }: PostItemProps) {
+function PostItem({ postFileName }: PostItemProps) {
+  const post = getPost(postFileName);
   const imageSrc = post.metadata.image ?? '/post-image/default.png';
 
   return (
@@ -33,9 +33,9 @@ function PostItem({ post }: PostItemProps) {
               {post.metadata.title}
             </h1>
             {!!post.content && (
-              <h2 className="line-clamp-3 word-style text-zinc-500 text-base mt-1 xs:mt-0 md:mt-1">
+              <div className="line-clamp-3 word-style text-zinc-500 text-base mt-1 xs:mt-0 md:mt-1">
                 <MDXThumbParser source={post.content} />
-              </h2>
+              </div>
             )}
           </div>
           <time className="mt-3 text-sm text-zinc-400 xs:mt-auto">
