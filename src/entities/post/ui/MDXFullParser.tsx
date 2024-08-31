@@ -1,6 +1,7 @@
 // @ts-nocheck
 /* eslint-disable */
 import { MDXRemote } from 'next-mdx-remote/rsc';
+import Image from 'next/image';
 import remarkGfm from 'remark-gfm';
 import { replaceSpacesWithDash } from '@/shared/lib';
 
@@ -41,6 +42,17 @@ function Anchor({ children, ...props }) {
   );
 }
 
+function Img({ children, ...props }) {
+  return (
+    <Image
+      {...props}
+      width={props.width ?? '640'}
+      height={props.width ?? '320'}
+      className="w-full xs:w-4/5 md:w-3/4"
+    />
+  );
+}
+
 function MDXFullParser({ source }: MDXParserProps) {
   return (
     <MDXRemote
@@ -60,6 +72,7 @@ function MDXFullParser({ source }: MDXParserProps) {
         h5: H5,
         h6: H6,
         a: Anchor,
+        img: Img,
       }}
     />
   );

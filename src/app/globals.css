@@ -22,7 +22,7 @@ body {
 
 @layer utilities {
   .layout-width {
-    @apply md:mx-auto w-full min-w-full md:w-[768px] md:min-w-[768px] px-4 sm:px-6 overflow-hidden;
+    @apply md:mx-auto w-full min-w-full md:w-[768px] md:min-w-[768px] px-4 xs:px-6 overflow-hidden;
   }
   .layout-background-color {
     @apply bg-white dark:bg-zinc-800 transition-colors duration-200

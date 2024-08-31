@@ -15,6 +15,7 @@ function Post({ slug }: PostProps) {
         prose md:prose-lg prose-zinc dark:prose-invert
         prose-table:w-full prose-table:inline-block prose-table:overflow-x-auto
         prose-code:before:content-none prose-code:after:content-none
+        prose-img:mx-auto prose-video:mx-auto
       `}
     >
       <MDXFullParser source={post.content} />
