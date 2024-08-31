@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 /* eslint-disable import/no-extraneous-dependencies */
 import type { Config } from 'tailwindcss';
+import type { PluginAPI } from 'tailwindcss/types/config';
 
 const config: Config = {
   mode: 'jit',
@@ -24,6 +25,22 @@ const config: Config = {
       },
     },
   },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [
+    require('@tailwindcss/typography'),
+    ({ addVariant }: PluginAPI) => {
+      addVariant(
+        'prose-inline-code',
+        '&.prose :where(:not(pre)>code):not(:where([class~="not-prose"] *))',
+      );
+      addVariant(
+        'prose-double-blockquote',
+        '&.prose :where(blockquote>div>blockquote):not(:where([class~="not-prose"] *))',
+      );
+      addVariant(
+        'prose-triple-blockquote',
+        '&.prose :where(blockquote>div>blockquote>div>blockquote):not(:where([class~="not-prose"] *))',
+      );
+    },
+  ],
 };
 export default config;
