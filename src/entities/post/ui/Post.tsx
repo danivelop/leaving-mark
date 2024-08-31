@@ -14,7 +14,7 @@ function Post({ slug }: PostProps) {
         layout-width word-style
         prose md:prose-lg prose-zinc dark:prose-invert
         prose-code:before:content-none prose-code:after:content-none
-        prose-pre:rounded-xl
+        prose-pre:rounded-md
         prose-p:before:content-none prose-p:after:content-none
         prose-img:mx-auto prose-video:mx-auto
         prose-a:text-blue-400 prose-a:no-underline hover:prose-a:text-blue-500 hover:prose-a:underline
