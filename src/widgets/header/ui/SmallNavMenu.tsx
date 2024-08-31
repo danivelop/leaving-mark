@@ -26,7 +26,7 @@ function SmallNavMenu() {
           </PopoverButton>
           <PopoverBackdrop
             transition
-            className="fixed inset-0 bg-slate-300/50 duration-150 data-[closed]:opacity-0 data-[enter]:ease-out data-[leave]:ease-in"
+            className="fixed inset-0 z-30 bg-slate-300/50 duration-150 data-[closed]:opacity-0 data-[enter]:ease-out data-[leave]:ease-in"
           />
           <PopoverPanel
             transition
@@ -35,7 +35,7 @@ function SmallNavMenu() {
               maxWidth: 'calc(100% - 2rem)',
               marginLeft: '-1rem',
             }}
-            className="absolute inset-x-0 mt-4 origin-top rounded-2xl bg-white p-4 shadow-xl ring-1 ring-slate-900/5 data-[closed]:scale-95 data-[closed]:opacity-0 data-[enter]:duration-150 data-[leave]:duration-100 data-[enter]:ease-out data-[leave]:ease-in"
+            className="absolute inset-x-0 z-30 mt-4 origin-top rounded-2xl bg-white p-4 shadow-xl ring-1 ring-slate-900/5 data-[closed]:scale-95 data-[closed]:opacity-0 data-[enter]:duration-150 data-[leave]:duration-100 data-[enter]:ease-out data-[leave]:ease-in"
           >
             <nav className="flex flex-col">
               <Link

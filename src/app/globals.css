@@ -42,6 +42,10 @@ body {
     -webkit-line-clamp: 3;
     line-clamp: 3;
   }
+  .transition-padding {
+    @apply transition;
+    transition-property: padding;
+  }
 }
 
 
