@@ -25,7 +25,7 @@ export function getDarkMode() {
 
   const localStorageValue = window.localStorage.getItem('darkMode');
   if (localStorageValue) {
-    return JSON.parse(localStorageValue);
+    return JSON.parse(localStorageValue) as boolean;
   }
   return window.matchMedia('(prefers-color-scheme: dark)').matches;
 }
