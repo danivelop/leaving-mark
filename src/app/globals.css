@@ -42,7 +42,7 @@ body {
     -webkit-line-clamp: 3;
     line-clamp: 3;
   }
-  pre code {
+  pre code, table {
     @apply w-full inline-block overflow-x-auto;
   }
 }
