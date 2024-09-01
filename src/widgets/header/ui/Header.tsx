@@ -30,7 +30,9 @@ function Header() {
     >
       <div className="layout-width flex justify-between items-center">
         <div className="flex items-center">
-          <h1 className="text-2xl text-neutral-700">Danivelop</h1>
+          <h1 className="text-2xl text-zinc-800 dark:text-zinc-200">
+            Danivelop
+          </h1>
         </div>
         <div className="flex items-center">
           <LargeNavMenu />

@@ -21,7 +21,7 @@ function PostItem({ postFileName }: PostItemProps) {
         className="flex flex-col xs:flex-row gap-4 xs:gap-10"
       >
         <Image
-          className="w-full min-w-full xs:w-52 xs:min-w-52 md:w-60 md:min-w-60 aspect-[3/2] object-cover object-center"
+          className="w-full min-w-full xs:w-52 xs:min-w-52 md:w-60 md:min-w-60 aspect-[3/2] object-cover object-center rounded-md"
           src={imageSrc}
           width={160}
           height={112}
@@ -29,16 +29,16 @@ function PostItem({ postFileName }: PostItemProps) {
         />
         <div className="flex flex-col overflow-x-hidden px-2 xs:justify-between xs:px-0 xs:py-1 md:py-2">
           <div className="flex flex-col">
-            <h1 className="ellipsis text-xl text-neutral-700 font-bold md:text-2xl">
+            <h1 className="ellipsis text-xl text-zinc-800 dark:text-zinc-100 font-bold md:text-2xl">
               {post.metadata.title}
             </h1>
             {!!post.content && (
-              <div className="line-clamp-3 word-style text-zinc-500 text-base mt-1 xs:mt-0 md:mt-1">
+              <div className="line-clamp-3 word-style text-zinc-500 dark:text-zinc-400 text-base mt-1 xs:mt-0 md:mt-1">
                 <MDXThumbParser source={post.content} />
               </div>
             )}
           </div>
-          <time className="mt-3 text-sm text-zinc-400 xs:mt-auto">
+          <time className="mt-3 text-sm text-zinc-400 dark:text-zinc-500 xs:mt-auto">
             {formatDate(new Date(post.metadata.publishedAt))}
           </time>
         </div>

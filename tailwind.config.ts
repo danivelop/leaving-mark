@@ -33,6 +33,10 @@ const config: Config = {
         '&.prose :where(:not(pre)>code):not(:where([class~="not-prose"] *))',
       );
       addVariant(
+        'prose-block-code',
+        '&.prose :where(pre>code):not(:where([class~="not-prose"] *))',
+      );
+      addVariant(
         'prose-double-blockquote',
         '&.prose :where(blockquote>div>blockquote):not(:where([class~="not-prose"] *))',
       );

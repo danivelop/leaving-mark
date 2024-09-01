@@ -25,7 +25,7 @@ body {
     @apply md:mx-auto w-full min-w-full md:w-[768px] md:min-w-[768px] px-4 xs:px-6 overflow-hidden;
   }
   .layout-background-color {
-    @apply bg-zinc-50 dark:bg-zinc-900 transition-colors duration-200
+    @apply bg-white dark:bg-zinc-900 transition-colors duration-200
   }
   .word-style {
     word-break: break-word;

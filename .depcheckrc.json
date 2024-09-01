@@ -4,6 +4,7 @@
     "@types/react",
     "@types/react-dom",
     "husky",
-    "postcss"
+    "postcss",
+    "autoprefixer"
   ]
 }
