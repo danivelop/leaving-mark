@@ -26,7 +26,7 @@ function Header() {
 
   return (
     <header
-      className={`layout-background-color w-full sticky top-0 left-0 right-0 z-10 ${isScrolled ? 'py-2' : 'py-6 md:py-10'} transition-padding`}
+      className={`layout-background-color w-full sticky top-0 left-0 right-0 z-10 ${isScrolled ? 'py-2' : 'py-6 md:py-10'}`}
     >
       <div className="layout-width flex justify-between items-center">
         <div className="flex items-center">

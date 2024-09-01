@@ -25,7 +25,7 @@ body {
     @apply md:mx-auto w-full min-w-full md:w-[768px] md:min-w-[768px] px-4 xs:px-6 overflow-hidden;
   }
   .layout-background-color {
-    @apply bg-white dark:bg-zinc-900 transition-colors duration-200
+    @apply bg-white dark:bg-zinc-900 transition-all duration-200
   }
   .word-style {
     word-break: break-word;
@@ -41,10 +41,6 @@ body {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     line-clamp: 3;
-  }
-  .transition-padding {
-    @apply transition;
-    transition-property: padding;
   }
 }
 
