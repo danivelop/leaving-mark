@@ -9,7 +9,7 @@ interface PostProps {
 function Post({ slug }: PostProps) {
   const post = getPost(slug);
   return (
-    <article
+    <div
       className={`
         layout-width word-style
         prose md:prose-lg prose-zinc dark:prose-invert
@@ -28,7 +28,7 @@ function Post({ slug }: PostProps) {
       `}
     >
       <MDXFullParser source={post.content} />
-    </article>
+    </div>
   );
 }
 

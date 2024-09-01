@@ -7,7 +7,13 @@ interface PostPageProps {
 }
 
 function PostPage({ params }: PostPageProps) {
-  return <PostDetail slug={params.slug} />;
+  return (
+    <section>
+      <article>
+        <PostDetail slug={params.slug} />
+      </article>
+    </section>
+  );
 }
 
 export default PostPage;

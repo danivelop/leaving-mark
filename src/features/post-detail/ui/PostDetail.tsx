@@ -5,11 +5,7 @@ interface PostDetailProps {
 }
 
 function PostDetail({ slug }: PostDetailProps) {
-  return (
-    <section>
-      <Post slug={slug} />
-    </section>
-  );
+  return <Post slug={slug} />;
 }
 
 export default PostDetail;
