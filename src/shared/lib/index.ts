@@ -1,1 +1,1 @@
-export { formatDate } from './dateUtils';
+export { formatRelativeDate, formatAbsoluteDate } from './dateUtils';

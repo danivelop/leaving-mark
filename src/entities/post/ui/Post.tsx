@@ -1,6 +1,9 @@
+import Image from 'next/image';
+
 import { getPost } from '@/entities/post/lib';
 
 import MDXFullParser from './MDXFullParser';
+import PostAbsoluteDate from './PostAbsoluteDate';
 
 interface PostProps {
   slug: string;
@@ -8,11 +11,14 @@ interface PostProps {
 
 function Post({ slug }: PostProps) {
   const post = getPost(slug);
+  const imageSrc = post.metadata.image ?? '/post-image/default.png';
+
   return (
     <div
       className={`
         layout-width word-style
         prose md:prose-lg prose-zinc dark:prose-invert
+        prose-h1:text-3xl md:prose-h1:text-4xl
         prose-pre:rounded-md
         prose-p:before:content-none prose-p:after:content-none
         prose-img:mx-auto prose-video:mx-auto
@@ -27,6 +33,16 @@ function Post({ slug }: PostProps) {
         prose-td:px-4 prose-td:py-3 prose-td:border-r last:prose-td:border-r-0 prose-td:border-zinc-300 dark:prose-td:border-zinc-600
       `}
     >
+      <h1>{post.metadata.title}</h1>
+      <PostAbsoluteDate publishedAt={post.metadata.publishedAt} />
+      <Image
+        src={imageSrc}
+        className="w-full min-w-full aspect-[3/2] object-cover object-center"
+        width="300"
+        height="200"
+        alt={`${post.metadata.title} image`}
+      />
+      <hr />
       <MDXFullParser source={post.content} />
     </div>
   );

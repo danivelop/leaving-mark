@@ -2,9 +2,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { getPost } from '@/entities/post/lib';
-import { formatDate } from '@/shared/lib';
 
 import MDXThumbParser from './MDXThumbParser';
+import PostRelativeDate from './PostRelativeDate';
 
 interface PostItemProps {
   postFileName: string;
@@ -38,9 +38,7 @@ function PostItem({ postFileName }: PostItemProps) {
               </div>
             )}
           </div>
-          <time className="mt-3 text-sm text-zinc-400 dark:text-zinc-500 xs:mt-auto">
-            {formatDate(new Date(post.metadata.publishedAt))}
-          </time>
+          <PostRelativeDate publishedAt={post.metadata.publishedAt} />
         </div>
       </Link>
     </li>

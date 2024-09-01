@@ -88,6 +88,7 @@ module.exports = {
     'jsx-a11y/control-has-associated-label': 'off',
     'import/prefer-default-export': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',
+    'react/require-default-props': 'off',
   },
   overrides: [
     {
