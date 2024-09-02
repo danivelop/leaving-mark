@@ -1,7 +1,5 @@
-export function formatRelativeDate(date: Date): string {
+export function formatRelativeDate(date: Date, isKo: boolean): string {
   const now = new Date();
-  const isKo =
-    window.navigator.language === 'ko-KR' || window.navigator.language === 'ko';
   const diffTime = Math.abs(now.getTime() - date.getTime());
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
@@ -28,10 +26,7 @@ export function formatRelativeDate(date: Date): string {
   return isKo ? `${diffYears}년 전` : `${diffYears} years ago`;
 }
 
-export function formatAbsoluteDate(date: Date): string {
-  const isKo =
-    window.navigator.language === 'ko-KR' || window.navigator.language === 'ko';
-
+export function formatAbsoluteDate(date: Date, isKo: boolean): string {
   if (isKo) {
     return new Intl.DateTimeFormat('ko-KR', {
       year: 'numeric',
