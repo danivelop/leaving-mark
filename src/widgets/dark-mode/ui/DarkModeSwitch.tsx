@@ -1,7 +1,7 @@
 'use client';
 
 import { Switch } from '@headlessui/react';
-import { SunIcon, SparklesIcon } from '@heroicons/react/20/solid';
+import { SunIcon, MoonIcon } from '@heroicons/react/20/solid';
 import { useState, useEffect } from 'react';
 
 import { getDarkMode, setDarkMode } from '@/widgets/dark-mode/lib';
@@ -34,7 +34,7 @@ function DarkModeSwitch() {
         >
           <div className="text-zinc-600 dark:text-zinc-200">
             {checked ? (
-              <SparklesIcon className="size-4" />
+              <MoonIcon className="size-4" />
             ) : (
               <SunIcon className="size-4" />
             )}
