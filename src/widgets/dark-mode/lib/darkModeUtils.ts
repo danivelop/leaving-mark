@@ -35,5 +35,5 @@ export function setDarkMode(darkMode: boolean) {
   document.documentElement.classList.remove(darkMode ? 'light' : 'dark');
   document.documentElement.classList.add(darkMode ? 'dark' : 'light');
 
-  setThemeColor(darkMode ? '#262626' : '#ffffff');
+  setThemeColor(darkMode ? '#18181b' : '#ffffff');
 }

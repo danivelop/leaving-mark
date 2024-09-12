@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { ExclamationTriangleIcon } from '@heroicons/react/24/solid';
+import { Lightbulb } from 'lucide-react';
 import Image from 'next/image';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import rehypeExternalLinks from 'rehype-external-links';
@@ -36,7 +36,7 @@ function Blockquote({ children }) {
   return (
     <blockquote className="flex gap-2 xs:gap-4">
       <div className="w-5 xs:w-6 text-amber-500 pt-6 xs:pt-7">
-        <ExclamationTriangleIcon className="size-5 xs:size-6" />
+        <Lightbulb className="size-5 xs:size-6" />
       </div>
       <div className="grow overflow-hidden">{children}</div>
     </blockquote>

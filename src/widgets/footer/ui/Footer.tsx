@@ -1,4 +1,4 @@
-import { AtSymbolIcon } from '@heroicons/react/24/solid';
+import { AtSign } from 'lucide-react';
 import Image from 'next/image';
 
 function Footer() {
@@ -30,7 +30,7 @@ function Footer() {
           </svg>
         </li>
         <li className="size-6 overflow-hidden relative text-zinc-900 dark:text-zinc-50">
-          <AtSymbolIcon className="size-7 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
+          <AtSign className="size-6 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
         </li>
       </ul>
       <p className="text-xs text-zinc-500">

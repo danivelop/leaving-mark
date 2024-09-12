@@ -1,6 +1,8 @@
 /* eslint-disable global-require */
 /* eslint-disable @typescript-eslint/no-require-imports */
 /* eslint-disable import/no-extraneous-dependencies */
+import { lime } from 'tailwindcss/colors';
+
 import type { Config } from 'tailwindcss';
 import type { PluginAPI } from 'tailwindcss/types/config';
 
@@ -22,6 +24,9 @@ const config: Config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      },
+      colors: {
+        theme: lime,
       },
     },
   },

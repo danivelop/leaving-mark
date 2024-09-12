@@ -6,7 +6,7 @@ import {
   PopoverPanel,
   PopoverBackdrop,
 } from '@headlessui/react';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/20/solid';
+import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -17,12 +17,8 @@ function SmallNavMenu() {
     <Popover className="md:hidden ml-4">
       {({ open, close }) => (
         <>
-          <PopoverButton className="p-1 rounded-lg focus:outline-none relative z-50 text-zinc-700 dark:text-zinc-200">
-            {open ? (
-              <XMarkIcon className="size-6" />
-            ) : (
-              <Bars3Icon className="size-6" />
-            )}
+          <PopoverButton className="p-1 rounded-lg focus:outline-none relative z-50 text-zinc-600 dark:text-zinc-300">
+            {open ? <X className="size-6" /> : <Menu className="size-6" />}
           </PopoverButton>
           <PopoverBackdrop
             transition
@@ -40,21 +36,21 @@ function SmallNavMenu() {
             <nav className="flex flex-col">
               <Link
                 href="/posts"
-                className={`${pathname.startsWith('/posts') && 'font-bold text-zinc-800'} inline-block rounded-lg px-2 py-1 text-lg text-zinc-700 dark:text-zinc-200 hover:text-zinc-800 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800`}
+                className={`${pathname.startsWith('/posts') && 'font-bold'} inline-block rounded-lg px-2 py-1 text-lg text-zinc-600 dark:text-zinc-300 hover:text-theme-700`}
                 onClick={close}
               >
                 Posts
               </Link>
               <Link
                 href="/project"
-                className={`${pathname.startsWith('/project') && 'font-bold text-zinc-800'} inline-block rounded-lg px-2 py-1 text-lg text-zinc-700 dark:text-zinc-200 hover:text-zinc-800 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800`}
+                className={`${pathname.startsWith('/project') && 'font-bold'} inline-block rounded-lg px-2 py-1 text-lg text-zinc-600 dark:text-zinc-300 hover:text-theme-700`}
                 onClick={close}
               >
                 Project
               </Link>
               <Link
                 href="/about"
-                className={`${pathname.startsWith('/about') && 'font-bold text-zinc-800'} inline-block rounded-lg px-2 py-1 text-lg text-zinc-700 dark:text-zinc-200 hover:text-zinc-800 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800`}
+                className={`${pathname.startsWith('/about') && 'font-bold'} inline-block rounded-lg px-2 py-1 text-lg text-zinc-600 dark:text-zinc-300 hover:text-theme-700`}
                 onClick={close}
               >
                 About

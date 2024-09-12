@@ -1,7 +1,6 @@
 'use client';
 
-import { Switch } from '@headlessui/react';
-import { SunIcon, MoonIcon } from '@heroicons/react/20/solid';
+import { Sun, Moon } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 import { getDarkMode, setDarkMode } from '@/widgets/dark-mode/lib';
@@ -22,26 +21,14 @@ function DarkModeSwitch() {
   };
 
   return (
-    <Switch
-      checked={isDarkMode}
-      onChange={handleClick}
-      className="group relative flex h-7 w-14 cursor-pointer rounded-full bg-zinc-600 dark:bg-zinc-200 p-1 transition-colors duration-200 ease-in-out focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white"
+    <button
+      type="button"
+      onClick={handleClick}
+      className="p-2 rounded-full text-zinc-900 dark:text-zinc-100 hover:bg-theme-700 hover:text-zinc-100 dark:hover:bg-theme-700 transition-colors"
+      aria-label="Toggle dark mode"
     >
-      {({ checked }) => (
-        <div
-          aria-hidden="true"
-          className="flex justify-center items-center pointer-events-none size-5 translate-x-0 rounded-full bg-zinc-200 dark:bg-zinc-600 ring-0 shadow-lg transition duration-200 ease-in-out group-data-[checked]:translate-x-7"
-        >
-          <div className="text-zinc-600 dark:text-zinc-200">
-            {checked ? (
-              <MoonIcon className="size-4" />
-            ) : (
-              <SunIcon className="size-4" />
-            )}
-          </div>
-        </div>
-      )}
-    </Switch>
+      {isDarkMode ? <Sun className="size-5" /> : <Moon className="size-5" />}
+    </button>
   );
 }
 
