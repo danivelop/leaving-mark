@@ -24,7 +24,7 @@ function DarkModeSwitch() {
     <button
       type="button"
       onClick={handleClick}
-      className="p-2 rounded-full text-zinc-900 dark:text-zinc-100 hover:bg-theme-700 hover:text-zinc-100 dark:hover:bg-theme-700 transition-colors"
+      className="p-2 rounded-full text-theme-700 hover:bg-theme-700 hover:text-zinc-100 transition-colors"
       aria-label="Toggle dark mode"
     >
       {isDarkMode ? <Sun className="size-5" /> : <Moon className="size-5" />}
