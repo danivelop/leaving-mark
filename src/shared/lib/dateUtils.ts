@@ -13,11 +13,11 @@ export function formatRelativeDate(date: Date, isKo: boolean): string {
     return isKo ? `${diffDays}일 전` : `${diffDays} days ago`;
   }
   if (diffDays <= 13) {
-    return isKo ? ' 1주일 전' : '1 week ago';
+    return isKo ? ' 1주 전' : '1 week ago';
   }
   if (diffDays <= 364) {
     const diffWeeks = Math.floor(diffDays / 7);
-    return isKo ? `${diffWeeks}주일 전` : `${diffWeeks} weeks ago`;
+    return isKo ? `${diffWeeks}주 전` : `${diffWeeks} weeks ago`;
   }
   if (diffDays <= 729) {
     return isKo ? '1년 전' : '1 year ago';
