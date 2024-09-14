@@ -1,1 +1,0 @@
-export { getPostFileNames } from './postListUtils';

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 
-import { formatRelativeDate } from '@/shared/lib';
+import { formatRelativeDate } from '@/shared/lib/dateUtils';
 
 interface PostRelativeDateProps {
   publishedAt: string;

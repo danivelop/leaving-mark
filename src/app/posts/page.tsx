@@ -1,10 +1,13 @@
 import { PostList } from '@/features/post-list';
+import { getMarkdowns } from '@/shared/lib/markdownUtils';
 
 function PostsPage() {
+  const posts = getMarkdowns('posts');
+
   return (
     <section>
       <article>
-        <PostList />
+        <PostList posts={posts} />
       </article>
     </section>
   );

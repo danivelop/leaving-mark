@@ -1,8 +1,8 @@
 import Image from 'next/image';
 
-import { getPost } from '@/entities/post/lib';
+import { getMarkdown } from '@/shared/lib/markdownUtils';
+import { MDXFullParser } from '@/shared/ui';
 
-import MDXFullParser from './MDXFullParser';
 import PostAbsoluteDate from './PostAbsoluteDate';
 
 interface PostProps {
@@ -10,7 +10,7 @@ interface PostProps {
 }
 
 function Post({ slug }: PostProps) {
-  const post = getPost(slug);
+  const post = getMarkdown(slug, 'posts');
   const imageSrc = post.metadata.image ?? '/post-image/default.png';
 
   return (

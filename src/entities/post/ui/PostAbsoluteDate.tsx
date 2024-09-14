@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 
-import { formatAbsoluteDate } from '@/shared/lib';
+import { formatAbsoluteDate } from '@/shared/lib/dateUtils';
 
 interface PostAbsoluteDateProps {
   publishedAt: string;

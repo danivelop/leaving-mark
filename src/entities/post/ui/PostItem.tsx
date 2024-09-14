@@ -1,17 +1,17 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { getPost } from '@/entities/post/lib';
+import { MDXThumbParser } from '@/shared/ui';
 
-import MDXThumbParser from './MDXThumbParser';
 import PostRelativeDate from './PostRelativeDate';
 
+import type { Markdown } from '@/shared/lib/markdownUtils';
+
 interface PostItemProps {
-  postFileName: string;
+  post: Markdown;
 }
 
-function PostItem({ postFileName }: PostItemProps) {
-  const post = getPost(postFileName);
+function PostItem({ post }: PostItemProps) {
   const imageSrc = post.metadata.image ?? '/post-image/default.png';
 
   return (

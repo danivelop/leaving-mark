@@ -117,7 +117,7 @@ function Code({ children }) {
   );
 }
 
-function MDXFullParser({ source }: MDXParserProps) {
+function MDXThumbParser({ source }: MDXParserProps) {
   return (
     <MDXRemote
       source={source}
@@ -148,4 +148,4 @@ function MDXFullParser({ source }: MDXParserProps) {
   );
 }
 
-export default MDXFullParser;
+export default MDXThumbParser;

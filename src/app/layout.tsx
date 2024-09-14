@@ -24,7 +24,7 @@ export default function RootLayout({
         className={`${inter.className} layout-background-color min-h-dvh flex flex-col`}
       >
         <Header />
-        <main className="flex-grow my-16">{children}</main>
+        <main className="flex-grow my-8 md:my-16">{children}</main>
         <Footer />
       </body>
     </html>
