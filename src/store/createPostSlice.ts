@@ -1,16 +1,16 @@
-import type { RootState } from './store';
+import type { RootSliceState } from './store';
 import type { StateCreator } from 'zustand';
 
-export interface PostState {
+export interface PostSliceState {
   selectedTag: string | null;
   setSelectedTag: (tag: string) => void;
 }
 
 export const createPostSlice: StateCreator<
-  RootState,
+  RootSliceState,
   [['zustand/immer', never]],
   [],
-  PostState
+  PostSliceState
 > = (set) => ({
   selectedTag: null,
   setSelectedTag: (tag) =>

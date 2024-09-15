@@ -3,13 +3,13 @@ import { immer } from 'zustand/middleware/immer';
 
 import { createPostSlice } from './createPostSlice';
 
-import type { PostState } from './createPostSlice';
+import type { PostSliceState } from './createPostSlice';
 
-export interface RootState {
-  postSlice: PostState;
+export interface RootSliceState {
+  postSlice: PostSliceState;
 }
 
-const useStore = create<RootState>()(
+const useStore = create<RootSliceState>()(
   immer((set, get, store) => ({
     postSlice: createPostSlice(set, get, store),
   })),
