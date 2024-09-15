@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 
 import { getDarkMode, setDarkMode } from '@/widgets/dark-mode/lib';
 
-function DarkModeSwitch() {
+function DarkModeButton() {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
@@ -32,4 +32,4 @@ function DarkModeSwitch() {
   );
 }
 
-export default DarkModeSwitch;
+export default DarkModeButton;
