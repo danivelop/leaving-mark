@@ -11,18 +11,14 @@ function Header() {
   return (
     <HeaderWrapper>
       <div className="layout-width flex justify-between items-center">
-        <div className="flex items-center">
-          <Link
-            href="/"
-            className="text-2xl font-bold text-zinc-900 dark:text-zinc-100"
-          >
-            <span className="sr-only">Logo</span>
-            <Logo />
-          </Link>
-          <span className="ml-2 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
-            danivelop
-          </span>
-        </div>
+        <Link
+          href="/"
+          className="flex items-center text-2xl font-bold text-zinc-900 dark:text-zinc-100"
+        >
+          <span className="sr-only">Logo</span>
+          <Logo />
+          <span className="ml-2 text-lg font-semibold">danivelop</span>
+        </Link>
         <div className="flex items-center">
           <LargeNavMenu />
           <DarkModeSwitch />
