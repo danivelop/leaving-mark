@@ -22,23 +22,25 @@ function TagList({ tags, selectedTag }: TagListProps) {
   };
 
   return (
-    <ul className="flex justify-center gap-2 w-full overflow-x-auto mb-12 hide-scrollbar">
-      {tags.map((tag) => (
-        <li key={tag}>
-          <Link
-            href={getHref(tag)}
-            replace
-            className={`text-sm font-medium px-3 py-1 rounded-full transition-colors focus:outline-none hover:bg-lime-700 hover:text-zinc-100 ${
-              (!selectedTag && tag === 'All') || tag === selectedTag
-                ? 'bg-lime-700 text-zinc-100'
-                : 'bg-zinc-100 text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300'
-            }`}
-          >
-            {tag}
-          </Link>
-        </li>
-      ))}
-    </ul>
+    <div className="w-full mb-12 overflow-x-auto hide-scrollbar">
+      <ul className="flex gap-2 w-max">
+        {tags.map((tag) => (
+          <li key={tag}>
+            <Link
+              href={getHref(tag)}
+              replace
+              className={`inline-block text-sm font-medium px-3 py-1 rounded-full transition-colors focus:outline-none hover:bg-lime-700 hover:text-zinc-100 ${
+                (!selectedTag && tag === 'All') || tag === selectedTag
+                  ? 'bg-lime-700 text-zinc-100'
+                  : 'bg-zinc-100 text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300'
+              }`}
+            >
+              {tag}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 

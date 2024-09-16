@@ -10,7 +10,7 @@ function TagFilter({ tags, selectedTag, matchedPostCount }: TagFilterProps) {
   const tagsWithAll = ['All', ...tags];
 
   return (
-    <section className="layout-width flex flex-col items-center">
+    <div className="layout-width flex flex-col items-center">
       <h1 className="text-3xl font-bold mb-2 text-zinc-900 dark:text-zinc-100">
         {selectedTag ?? 'All'}
       </h1>
@@ -18,7 +18,7 @@ function TagFilter({ tags, selectedTag, matchedPostCount }: TagFilterProps) {
         {matchedPostCount} posts
       </p>
       <TagList tags={tagsWithAll} selectedTag={selectedTag} />
-    </section>
+    </div>
   );
 }
 

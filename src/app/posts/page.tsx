@@ -29,6 +29,8 @@ function PostsPage({ searchParams }: PostsPageProps) {
           selectedTag={selectedTag}
           matchedPostCount={matchedPostCount}
         />
+      </article>
+      <article>
         <PostList posts={posts} selectedTag={selectedTag} />
       </article>
     </section>
