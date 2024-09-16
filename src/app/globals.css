@@ -22,7 +22,7 @@ body {
 
 @layer utilities {
   .layout-width {
-    @apply md:mx-auto w-full min-w-full md:w-[768px] md:min-w-[768px] px-4 xs:px-6 overflow-hidden;
+    @apply md:mx-auto w-full min-w-full md:w-[768px] md:min-w-[768px] px-4 xs:px-6;
   }
   .layout-background-color {
     @apply bg-white dark:bg-zinc-900 transition-all
@@ -30,17 +30,6 @@ body {
   .word-style {
     word-break: break-word;
     overflow-wrap: break-word;
-  }
-  .ellipsis {
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-  }
-  .line-clamp-3 {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
   }
   .hide-scrollbar {
     scrollbar-width: none;

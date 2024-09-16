@@ -19,7 +19,7 @@ function PostRelativeDate({ publishedAt }: PostRelativeDateProps) {
   }, []);
 
   return (
-    <time className="mt-3 text-sm text-zinc-400 dark:text-zinc-500 xs:mt-auto">
+    <time className=" text-zinc-500 dark:text-zinc-400">
       {formatRelativeDate(new Date(publishedAt), isko)}
     </time>
   );
