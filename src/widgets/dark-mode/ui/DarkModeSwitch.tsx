@@ -1,19 +1,21 @@
 'use client';
 
 import { Sun, Moon } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 
+import { useStore } from '@/store';
 import { getDarkMode, setDarkMode } from '@/widgets/dark-mode/lib';
 
 function DarkModeButton() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const isDarkMode = useStore((state) => state.themeSlice.isDarkMode);
+  const setIsDarkMode = useStore((state) => state.themeSlice.setIsDarkMode);
 
   useEffect(() => {
     const darkMode = getDarkMode();
 
     setIsDarkMode(darkMode);
     setDarkMode(darkMode);
-  }, []);
+  }, [setIsDarkMode]);
 
   const handleClick = () => {
     setIsDarkMode(!isDarkMode);
