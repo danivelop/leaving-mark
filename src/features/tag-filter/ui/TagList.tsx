@@ -22,7 +22,7 @@ function TagList({ tags, selectedTag }: TagListProps) {
   };
 
   return (
-    <div className="w-full mb-12 overflow-x-auto hide-scrollbar">
+    <div className="max-w-full mb-12 overflow-x-auto hide-scrollbar">
       <ul className="flex gap-2 w-max">
         {tags.map((tag) => (
           <li key={tag}>
