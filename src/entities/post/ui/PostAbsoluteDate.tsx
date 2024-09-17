@@ -19,7 +19,7 @@ function PostAbsoluteDate({ publishedAt }: PostAbsoluteDateProps) {
   }, []);
 
   return (
-    <time className="text-zinc-500 dark:text-zinc-400">
+    <time className="inline-block text-sm xs:text-base mb-4 text-zinc-500 dark:text-zinc-400">
       {formatAbsoluteDate(new Date(publishedAt), isko)}
     </time>
   );

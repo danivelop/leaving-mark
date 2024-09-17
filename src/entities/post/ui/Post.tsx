@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 import { getMarkdown } from '@/shared/lib/markdownUtils';
-import { MDXFullParser } from '@/shared/ui';
+import { MDXFullParser, Badge } from '@/shared/ui';
 
 import PostAbsoluteDate from './PostAbsoluteDate';
 
@@ -14,12 +14,36 @@ function Post({ slug }: PostProps) {
   const imageSrc = post.metadata.image ?? '/post-image/default.png';
 
   return (
-    <div
-      className={`
-        layout-width word-style
+    <div className="layout-width word-style">
+      <h1 className="text-2xl xs:text-3xl md:text-4xl mb-2 font-bold text-zinc-900 dark:text-zinc-100">
+        {post.metadata.title}
+      </h1>
+      <PostAbsoluteDate publishedAt={post.metadata.publishedAt} />
+      {post.metadata.tags && (
+        <div className="w-full overflow-x-auto hide-scrollbar mb-4">
+          <ul className="flex flex-nowrap gap-2 min-w-fit">
+            {post.metadata.tags.map((tag) => (
+              <li key={tag}>
+                <Badge className="bg-lime-700 text-xs xs:text-sm px-[10px] py-[2px] text-zinc-100 border-lime-700">
+                  {tag}
+                </Badge>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+      <Image
+        src={imageSrc}
+        className="w-full min-w-full mb-6 xs:mb-8 aspect-[3/2] object-cover object-center rounded-lg"
+        width="300"
+        height="200"
+        alt={`${post.metadata.title} image`}
+      />
+      <div
+        className={`
         prose md:prose-lg prose-zinc dark:prose-invert
         prose-h1:text-3xl md:prose-h1:text-4xl
-        prose-pre:rounded-md
+        prose-pre:rounded-md prose-pre:!mb-4
         prose-p:before:content-none prose-p:after:content-none
         prose-img:mx-auto prose-video:mx-auto
         prose-a:text-blue-400 prose-a:no-underline hover:prose-a:text-blue-500 hover:prose-a:underline
@@ -32,18 +56,9 @@ function Post({ slug }: PostProps) {
         prose-th:px-4 prose-th:py-3 prose-th:border-r last:prose-th:border-r-0 prose-th:border-zinc-300 dark:prose-th:border-zinc-600 prose-th:text-center
         prose-td:px-4 prose-td:py-3 prose-td:border-r last:prose-td:border-r-0 prose-td:border-zinc-300 dark:prose-td:border-zinc-600
       `}
-    >
-      <h1>{post.metadata.title}</h1>
-      <PostAbsoluteDate publishedAt={post.metadata.publishedAt} />
-      <Image
-        src={imageSrc}
-        className="w-full min-w-full aspect-[3/2] object-cover object-center"
-        width="300"
-        height="200"
-        alt={`${post.metadata.title} image`}
-      />
-      <hr />
-      <MDXFullParser source={post.content} />
+      >
+        <MDXFullParser source={post.content} />
+      </div>
     </div>
   );
 }

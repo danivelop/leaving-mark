@@ -44,16 +44,18 @@ function PostItem({ post }: PostItemProps) {
               <PostRelativeDate publishedAt={post.metadata.publishedAt} />
               <ReadingTime content={post.content} />
             </div>
-            <div className="flex flex-nowrap gap-2 overflow-hidden">
-              {post.metadata.tags?.slice(0, 3).map((tag) => (
-                <Badge
-                  key={tag}
-                  className="text-[10px] px-1.5 py-0.5 bg-lime-700 text-zinc-100"
-                >
-                  {tag}
-                </Badge>
-              ))}
-            </div>
+            {post.metadata.tags && (
+              <div className="flex flex-nowrap gap-2 overflow-hidden">
+                {post.metadata.tags.slice(0, 3).map((tag) => (
+                  <Badge
+                    key={tag}
+                    className="text-[10px] px-1.5 py-0.5 bg-lime-700 text-zinc-100"
+                  >
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </Link>

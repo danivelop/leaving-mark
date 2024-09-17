@@ -28,6 +28,14 @@ const config: Config = {
       colors: {
         theme: lime,
       },
+      typography: ({ theme }) => ({
+        zinc: {
+          css: {
+            '--tw-prose-headings': theme('colors.zinc[900]'),
+            '--tw-prose-invert-headings': theme('colors.zinc[100]'),
+          },
+        },
+      }),
     },
   },
   plugins: [

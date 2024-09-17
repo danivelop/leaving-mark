@@ -4,7 +4,11 @@ interface BadgeProps {
 }
 
 function Badge({ children, className }: BadgeProps) {
-  return <div className={`${className} rounded-full`}>{children}</div>;
+  return (
+    <div className={`${className} rounded-full break-keep font-semibold`}>
+      {children}
+    </div>
+  );
 }
 
 export default Badge;
