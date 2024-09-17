@@ -14,7 +14,7 @@ function Post({ slug }: PostProps) {
   const imageSrc = post.metadata.image ?? '/post-image/default.png';
 
   return (
-    <div className="layout-width word-style">
+    <div className="word-style">
       <h1 className="text-2xl xs:text-3xl md:text-4xl mb-2 font-bold text-zinc-900 dark:text-zinc-100">
         {post.metadata.title}
       </h1>

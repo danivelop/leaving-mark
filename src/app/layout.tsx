@@ -1,6 +1,7 @@
 import { Inter } from 'next/font/google';
 import './globals.css';
 
+import { Toaster } from '@/shared/ui';
 import { Footer } from '@/widgets/footer';
 import { Header } from '@/widgets/header';
 
@@ -26,6 +27,7 @@ export default function RootLayout({
         <Header />
         <main className="flex-grow my-8 md:my-16">{children}</main>
         <Footer />
+        <Toaster />
       </body>
     </html>
   );
