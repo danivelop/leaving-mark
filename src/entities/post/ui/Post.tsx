@@ -18,7 +18,9 @@ function Post({ slug }: PostProps) {
       <h1 className="text-2xl xs:text-3xl md:text-4xl mb-2 font-bold text-zinc-900 dark:text-zinc-100">
         {post.metadata.title}
       </h1>
-      <PostAbsoluteDate publishedAt={post.metadata.publishedAt} />
+      <div className="text-sm xs:text-base mb-4">
+        <PostAbsoluteDate publishedAt={post.metadata.publishedAt} />
+      </div>
       {post.metadata.tags && (
         <div className="w-full overflow-x-auto hide-scrollbar mb-4">
           <ul className="flex flex-nowrap gap-2 min-w-fit">
