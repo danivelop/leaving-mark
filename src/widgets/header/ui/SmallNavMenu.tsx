@@ -36,21 +36,21 @@ function SmallNavMenu() {
             <nav className="flex flex-col">
               <Link
                 href="/posts"
-                className={`${pathname.startsWith('/posts') && 'font-bold'} inline-block rounded-lg px-2 py-1 text-lg text-zinc-600 dark:text-zinc-300 hover:text-theme-700`}
+                className={`${pathname === '/posts' && 'font-bold'} inline-block rounded-lg px-2 py-1 text-lg text-zinc-600 dark:text-zinc-300 hover:text-theme-700`}
                 onClick={close}
               >
                 Posts
               </Link>
               <Link
                 href="/project"
-                className={`${pathname.startsWith('/project') && 'font-bold'} inline-block rounded-lg px-2 py-1 text-lg text-zinc-600 dark:text-zinc-300 hover:text-theme-700`}
+                className={`${pathname === '/project' && 'font-bold'} inline-block rounded-lg px-2 py-1 text-lg text-zinc-600 dark:text-zinc-300 hover:text-theme-700`}
                 onClick={close}
               >
                 Project
               </Link>
               <Link
                 href="/about"
-                className={`${pathname.startsWith('/about') && 'font-bold'} inline-block rounded-lg px-2 py-1 text-lg text-zinc-600 dark:text-zinc-300 hover:text-theme-700`}
+                className={`${pathname === '/about' && 'font-bold'} inline-block rounded-lg px-2 py-1 text-lg text-zinc-600 dark:text-zinc-300 hover:text-theme-700`}
                 onClick={close}
               >
                 About
