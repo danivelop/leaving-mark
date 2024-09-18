@@ -4,38 +4,38 @@ import { ThumbsUp, Bookmark, BookmarkCheck, Share2 } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 import { useToast } from '@/shared/hooks';
+import { useStore } from '@/store';
 
 interface ActionButtonsProps {
+  className?: string;
   namespace?: 'post' | 'project';
   slug: string;
 }
 
-function ActionButtons({ slug, namespace = 'post' }: ActionButtonsProps) {
+function ActionButtons({
+  className,
+  slug,
+  namespace = 'post',
+}: ActionButtonsProps) {
   const { toast } = useToast();
 
+  const bookmarkedPosts = useStore((state) => state.postSlice.bookmarkedPosts);
+  const initializeBookmarkedPosts = useStore(
+    (state) => state.postSlice.initializeBookmarkedPosts,
+  );
+  const setBookmarkedPosts = useStore(
+    (state) => state.postSlice.setBookmarkedPosts,
+  );
+
   const [likes, setLikes] = useState(0);
-  const [currentBookmarked, setCurrentBookmarked] = useState(new Set());
-  const isBookmarked = currentBookmarked.has(`${namespace}-${slug}`);
+  const isBookmarked = bookmarkedPosts.has(`${namespace}-${slug}`);
 
   const handleLike = () => {
     setLikes((prev) => prev + 1);
   };
 
   const handleBookmark = () => {
-    const newBookmarked = new Set(currentBookmarked);
-
-    if (isBookmarked) {
-      newBookmarked.delete(`${namespace}-${slug}`);
-    } else {
-      newBookmarked.add(`${namespace}-${slug}`);
-    }
-
-    setCurrentBookmarked(newBookmarked);
-
-    window.localStorage.setItem(
-      'bookmarked',
-      JSON.stringify(Array.from(newBookmarked)),
-    );
+    setBookmarkedPosts(`${namespace}-${slug}`);
   };
 
   const handleShare = () => {
@@ -61,14 +61,11 @@ function ActionButtons({ slug, namespace = 'post' }: ActionButtonsProps) {
   };
 
   useEffect(() => {
-    const bookmarked = JSON.parse(
-      window.localStorage.getItem('bookmarked') ?? '[]',
-    ) as string[];
-    setCurrentBookmarked(new Set(bookmarked));
-  }, []);
+    initializeBookmarkedPosts();
+  }, [initializeBookmarkedPosts]);
 
   return (
-    <div className="flex items-center justify-start xs:justify-end space-x-2 mb-8">
+    <div className={`${className} flex items-center space-x-2`}>
       <button
         type="button"
         onClick={handleLike}

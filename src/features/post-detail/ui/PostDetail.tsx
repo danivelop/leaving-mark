@@ -8,8 +8,15 @@ interface PostDetailProps {
 function PostDetail({ slug }: PostDetailProps) {
   return (
     <div className="layout-width flex flex-col">
-      <ActionButtons slug={slug} />
+      <ActionButtons
+        className="justify-start xs:justify-end mb-8"
+        slug={slug}
+      />
       <Post slug={slug} />
+      <ActionButtons
+        className="justify-start xs:justify-end mt-8"
+        slug={slug}
+      />
     </div>
   );
 }
