@@ -1,54 +1,13 @@
-import Image from 'next/image';
-
-import { getMarkdown } from '@/shared/lib/markdownUtils';
-import { MDXFullParser, Badge, Space } from '@/shared/ui';
-
-import PostAbsoluteDate from './PostAbsoluteDate';
+import { MDXFullParser } from '@/shared/ui';
 
 interface PostProps {
-  slug: string;
+  content: string;
 }
 
-function Post({ slug }: PostProps) {
-  const post = getMarkdown(slug, 'posts');
-  const imageSrc = post.metadata.image ?? '/post-image/default.png';
-
+function Post({ content }: PostProps) {
   return (
-    <div className="word-style">
-      <h1 className="text-2xl xs:text-3xl md:text-4xl font-bold text-zinc-900 dark:text-zinc-100">
-        {post.metadata.title}
-      </h1>
-      <Space className="h-2" />
-      <div className="text-sm xs:text-base">
-        <PostAbsoluteDate publishedAt={post.metadata.publishedAt} />
-      </div>
-      <Space className="h-4" />
-      {post.metadata.tags && (
-        <>
-          <div className="w-full overflow-x-auto hide-scrollbar">
-            <ul className="flex flex-nowrap gap-2 min-w-fit">
-              {post.metadata.tags.map((tag) => (
-                <li key={tag}>
-                  <Badge className="bg-lime-700 text-xs xs:text-sm px-[10px] py-[2px] text-zinc-100 border-lime-700">
-                    {tag}
-                  </Badge>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <Space className="h-4" />
-        </>
-      )}
-      <Image
-        src={imageSrc}
-        className="w-full min-w-full aspect-[3/2] object-cover object-center rounded-lg"
-        width="300"
-        height="200"
-        alt={`${post.metadata.title} image`}
-      />
-      <Space className="h-6 xs:h-8" />
-      <div
-        className={`
+    <div
+      className={`
         prose md:prose-lg prose-zinc dark:prose-invert
         prose-h1:text-3xl md:prose-h1:text-4xl
         prose-pre:rounded-md prose-pre:!mb-4
@@ -64,9 +23,8 @@ function Post({ slug }: PostProps) {
         prose-th:px-4 prose-th:py-3 prose-th:border-r last:prose-th:border-r-0 prose-th:border-zinc-300 dark:prose-th:border-zinc-600 prose-th:text-center
         prose-td:px-4 prose-td:py-3 prose-td:border-r last:prose-td:border-r-0 prose-td:border-zinc-300 dark:prose-td:border-zinc-600
       `}
-      >
-        <MDXFullParser source={post.content} />
-      </div>
+    >
+      <MDXFullParser source={content} />
     </div>
   );
 }
