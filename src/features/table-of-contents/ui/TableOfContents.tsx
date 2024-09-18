@@ -10,9 +10,13 @@ interface TableOfContentsProps {
 function TableOfContents({ content }: TableOfContentsProps) {
   const tableOfContents = getTableOfContents(content);
 
+  if (!tableOfContents.length) {
+    return null;
+  }
+
   return (
     <div className="w-fit">
-      <p className="text-zinc-900 dark:text-zinc-100 text-base font-bold">
+      <p className="text-zinc-900 dark:text-zinc-100 text-base font-bold whitespace-nowrap">
         On This Page
       </p>
       <Space className="h-4" />
