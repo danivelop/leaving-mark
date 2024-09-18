@@ -1,5 +1,6 @@
 import { Post } from '@/entities/post';
 import { ActionButtons } from '@/features/action-button';
+import { Space } from '@/shared/ui';
 
 interface PostDetailProps {
   slug: string;
@@ -8,15 +9,11 @@ interface PostDetailProps {
 function PostDetail({ slug }: PostDetailProps) {
   return (
     <div className="layout-width flex flex-col">
-      <ActionButtons
-        className="justify-start xs:justify-end mb-8"
-        slug={slug}
-      />
+      <ActionButtons className="justify-start xs:justify-end" slug={slug} />
+      <Space className="h-8" />
       <Post slug={slug} />
-      <ActionButtons
-        className="justify-start xs:justify-end mt-8"
-        slug={slug}
-      />
+      <Space className="h-8" />
+      <ActionButtons className="justify-start xs:justify-end" slug={slug} />
     </div>
   );
 }

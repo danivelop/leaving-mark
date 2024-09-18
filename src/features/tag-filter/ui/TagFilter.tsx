@@ -1,3 +1,5 @@
+import { Space } from '@/shared/ui';
+
 import TagList from './TagList';
 
 interface TagFilterProps {
@@ -11,12 +13,14 @@ function TagFilter({ tags, selectedTag, matchedPostCount }: TagFilterProps) {
 
   return (
     <div className="layout-width flex flex-col items-center">
-      <h1 className="text-3xl font-bold mb-2 text-zinc-900 dark:text-zinc-100">
+      <h1 className="text-3xl font-bold text-zinc-900 dark:text-zinc-100">
         {selectedTag ?? 'All'}
       </h1>
-      <p className="text-zinc-500 dark:text-zinc-400 mb-8">
+      <Space className="h-2" />
+      <p className="text-zinc-500 dark:text-zinc-400">
         {matchedPostCount} posts
       </p>
+      <Space className="h-8" />
       <TagList tags={tagsWithAll} selectedTag={selectedTag} />
     </div>
   );

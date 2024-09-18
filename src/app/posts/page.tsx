@@ -1,6 +1,7 @@
 import { PostList } from '@/features/post-list';
 import { TagFilter } from '@/features/tag-filter';
 import { getMarkdowns } from '@/shared/lib/markdownUtils';
+import { Space } from '@/shared/ui';
 
 interface PostsPageProps {
   searchParams: {
@@ -30,6 +31,7 @@ function PostsPage({ searchParams }: PostsPageProps) {
           matchedPostCount={matchedPostCount}
         />
       </article>
+      <Space className="h-12" />
       <article>
         <PostList posts={posts} selectedTag={selectedTag} />
       </article>

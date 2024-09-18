@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 import { getMarkdown } from '@/shared/lib/markdownUtils';
-import { MDXFullParser, Badge } from '@/shared/ui';
+import { MDXFullParser, Badge, Space } from '@/shared/ui';
 
 import PostAbsoluteDate from './PostAbsoluteDate';
 
@@ -15,32 +15,38 @@ function Post({ slug }: PostProps) {
 
   return (
     <div className="word-style">
-      <h1 className="text-2xl xs:text-3xl md:text-4xl mb-2 font-bold text-zinc-900 dark:text-zinc-100">
+      <h1 className="text-2xl xs:text-3xl md:text-4xl font-bold text-zinc-900 dark:text-zinc-100">
         {post.metadata.title}
       </h1>
-      <div className="text-sm xs:text-base mb-4">
+      <Space className="h-2" />
+      <div className="text-sm xs:text-base">
         <PostAbsoluteDate publishedAt={post.metadata.publishedAt} />
       </div>
+      <Space className="h-4" />
       {post.metadata.tags && (
-        <div className="w-full overflow-x-auto hide-scrollbar mb-4">
-          <ul className="flex flex-nowrap gap-2 min-w-fit">
-            {post.metadata.tags.map((tag) => (
-              <li key={tag}>
-                <Badge className="bg-lime-700 text-xs xs:text-sm px-[10px] py-[2px] text-zinc-100 border-lime-700">
-                  {tag}
-                </Badge>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <>
+          <div className="w-full overflow-x-auto hide-scrollbar">
+            <ul className="flex flex-nowrap gap-2 min-w-fit">
+              {post.metadata.tags.map((tag) => (
+                <li key={tag}>
+                  <Badge className="bg-lime-700 text-xs xs:text-sm px-[10px] py-[2px] text-zinc-100 border-lime-700">
+                    {tag}
+                  </Badge>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <Space className="h-4" />
+        </>
       )}
       <Image
         src={imageSrc}
-        className="w-full min-w-full mb-6 xs:mb-8 aspect-[3/2] object-cover object-center rounded-lg"
+        className="w-full min-w-full aspect-[3/2] object-cover object-center rounded-lg"
         width="300"
         height="200"
         alt={`${post.metadata.title} image`}
       />
+      <Space className="h-6 xs:h-8" />
       <div
         className={`
         prose md:prose-lg prose-zinc dark:prose-invert
