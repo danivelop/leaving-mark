@@ -1,17 +1,17 @@
 import Image from 'next/image';
 
 import { Post } from '@/entities/post';
-import { getMarkdown } from '@/shared/lib/markdownUtils';
 import { Badge, Space } from '@/shared/ui';
 
 import PostAbsoluteDate from './PostAbsoluteDate';
 
+import type { Markdown } from '@/shared/lib/markdownUtils';
+
 interface PostDetailProps {
-  slug: string;
+  post: Markdown;
 }
 
-function PostDetail({ slug }: PostDetailProps) {
-  const post = getMarkdown(slug, 'posts');
+function PostDetail({ post }: PostDetailProps) {
   const imageSrc = post.metadata.image ?? '/post-image/default.png';
 
   return (

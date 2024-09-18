@@ -11,6 +11,60 @@ interface MDXParserProps {
   source: string;
 }
 
+function H1({ children, ...props }) {
+  return (
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    <h1 className="scroll-mt-20" {...props}>
+      {children}
+    </h1>
+  );
+}
+
+function H2({ children, ...props }) {
+  return (
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    <h2 className="scroll-mt-20" {...props}>
+      {children}
+    </h2>
+  );
+}
+
+function H3({ children, ...props }) {
+  return (
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    <h3 className="scroll-mt-20" {...props}>
+      {children}
+    </h3>
+  );
+}
+
+function H4({ children, ...props }) {
+  return (
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    <h4 className="scroll-mt-20" {...props}>
+      {children}
+    </h4>
+  );
+}
+
+function H5({ children, ...props }) {
+  return (
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    <h5 className="scroll-mt-20" {...props}>
+      {children}
+    </h5>
+  );
+}
+
+function H6({ children, ...props }) {
+  return (
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    <h6 className="scroll-mt-20" {...props}>
+      {children}
+    </h6>
+  );
+}
+
 function Img({ ...props }) {
   return (
     // eslint-disable-next-line jsx-a11y/alt-text
@@ -69,6 +123,12 @@ function MDXFullParser({ source }: MDXParserProps) {
         },
       }}
       components={{
+        h1: H1,
+        h2: H2,
+        h3: H3,
+        h4: H4,
+        h5: H5,
+        h6: H6,
         img: Img,
         blockquote: Blockquote,
         table: Table,
