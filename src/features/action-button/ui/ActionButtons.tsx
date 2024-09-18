@@ -69,7 +69,7 @@ function ActionButtons({
       <button
         type="button"
         onClick={handleLike}
-        className="flex items-center px-3 py-[6px] rounded-lg transition-colors duration-150 text-zinc-600 hover:text-zinc-100 hover:bg-lime-800 dark:text-zinc-400 dark:hover:text-zinc-100 dark:hover:bg-lime-800 text-xs xs:text-sm"
+        className="flex items-center px-3 py-[6px] rounded-lg transition-colors duration-150 text-zinc-600 hover:text-zinc-100 hover:bg-theme-800 dark:text-zinc-400 dark:hover:text-zinc-100 dark:hover:bg-theme-800 text-xs xs:text-sm"
       >
         <ThumbsUp className="size-3 xs:w-4 xs:h-4 mr-1" />
         <span>{likes} Likes</span>
@@ -79,8 +79,8 @@ function ActionButtons({
         onClick={handleBookmark}
         className={`${
           isBookmarked
-            ? 'text-lime-700 bg-lime-700/10 hover:bg-lime-800 hover:text-zinc-100 dark:text-lime-400 dark:bg-lime-700/20 dark:hover:bg-lime-800 dark:hover:text-zinc-100'
-            : 'text-zinc-600 hover:text-zinc-100 hover:bg-lime-800 dark:text-zinc-400 dark:hover:text-zinc-100 dark:hover:bg-lime-800'
+            ? 'text-theme-700 bg-theme-700/10 hover:bg-theme-800 hover:text-zinc-100 dark:text-theme-400 dark:bg-theme-700/20 dark:hover:bg-theme-800 dark:hover:text-zinc-100'
+            : 'text-zinc-600 hover:text-zinc-100 hover:bg-theme-800 dark:text-zinc-400 dark:hover:text-zinc-100 dark:hover:bg-theme-800'
         } flex items-center px-3 py-[6px] rounded-lg transition-colors duration-150 text-xs xs:text-sm`}
       >
         {isBookmarked ? (
@@ -93,7 +93,7 @@ function ActionButtons({
       <button
         type="button"
         onClick={handleShare}
-        className="flex items-center px-3 py-[6px] rounded-lg transition-colors duration-150 text-zinc-600 hover:text-zinc-100 hover:bg-lime-800 dark:text-zinc-400 dark:hover:text-zinc-100 dark:hover:bg-lime-800 text-xs xs:text-sm"
+        className="flex items-center px-3 py-[6px] rounded-lg transition-colors duration-150 text-zinc-600 hover:text-zinc-100 hover:bg-theme-800 dark:text-zinc-400 dark:hover:text-zinc-100 dark:hover:bg-theme-800 text-xs xs:text-sm"
       >
         <Share2 className="size-3 xs:w-4 xs:h-4 mr-1" />
         <span>Share</span>

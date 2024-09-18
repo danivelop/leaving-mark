@@ -30,7 +30,7 @@ function PostDetail({ post }: PostDetailProps) {
             <ul className="flex flex-nowrap gap-2 min-w-fit">
               {post.metadata.tags.map((tag) => (
                 <li key={tag}>
-                  <Badge className="bg-lime-700 text-xs xs:text-sm px-[10px] py-[2px] text-zinc-100 border-lime-700">
+                  <Badge className="bg-theme-700 text-xs xs:text-sm px-[10px] py-[2px] text-zinc-100 border-theme-700">
                     {tag}
                   </Badge>
                 </li>

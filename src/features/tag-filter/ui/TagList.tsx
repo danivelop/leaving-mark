@@ -29,9 +29,9 @@ function TagList({ tags, selectedTag }: TagListProps) {
             <Link
               href={getHref(tag)}
               replace
-              className={`inline-block text-sm font-medium px-3 py-1 rounded-full transition-colors focus:outline-none hover:bg-lime-700 hover:text-zinc-100 ${
+              className={`inline-block text-sm font-medium px-3 py-1 rounded-full transition-colors focus:outline-none hover:bg-theme-700 hover:text-zinc-100 ${
                 (!selectedTag && tag === 'All') || tag === selectedTag
-                  ? 'bg-lime-700 text-zinc-100'
+                  ? 'bg-theme-700 text-zinc-100'
                   : 'bg-zinc-100 text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300'
               }`}
             >

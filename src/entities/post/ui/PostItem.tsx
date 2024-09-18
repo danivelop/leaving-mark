@@ -49,7 +49,7 @@ function PostItem({ post }: PostItemProps) {
                 {post.metadata.tags.slice(0, 3).map((tag) => (
                   <Badge
                     key={tag}
-                    className="text-[10px] px-1.5 py-0.5 bg-lime-700 text-zinc-100"
+                    className="text-[10px] px-1.5 py-0.5 bg-theme-700 text-zinc-100"
                   >
                     {tag}
                   </Badge>
