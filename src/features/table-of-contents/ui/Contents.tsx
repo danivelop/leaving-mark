@@ -81,7 +81,7 @@ function Contents({ tableOfContents }: ContentsProps) {
           key={`${index}-${toc.tag}-${toc.value}`}
           className={`
               ${getIndentationStyle(toc.tag)}
-              transition-colors leading-tight duration-150
+              leading-tight
               ${activeToc === getHeadingIdentity(toc.value) ? 'text-lime-700 font-bold' : 'text-zinc-600 dark:text-zinc-400 hover:text-lime-700 dark:hover:text-lime-400"'}
             `}
         >
