@@ -1,4 +1,5 @@
 import { ActionButtons } from '@/features/action-button';
+import { Utterances } from '@/features/comment';
 import { PostDetail, RelatedPosts } from '@/features/post-detail';
 import { PreviousNextPost } from '@/features/previous-next-post';
 import { TableOfContents } from '@/features/table-of-contents';
@@ -37,6 +38,8 @@ function PostPage({ params }: PostPageProps) {
       <RelatedPosts currentPost={post} allPosts={posts} />
       <Space className="h-6 xs:h-8" />
       <PreviousNextPost currentPost={post} allPosts={posts} />
+      <Space className="h-8 xs:h-12" />
+      <Utterances />
     </section>
   );
 }
