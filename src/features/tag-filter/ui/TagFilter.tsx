@@ -2,14 +2,31 @@ import { Space } from '@/shared/ui';
 
 import TagList from './TagList';
 
+import type { Markdown } from '@/shared/lib/markdownUtils';
+
 interface TagFilterProps {
-  matchedPostCount: number;
+  label?: 'posts' | 'projects';
+  markdowns: Markdown[];
   selectedTag?: string;
-  tags: string[];
 }
 
-function TagFilter({ tags, selectedTag, matchedPostCount }: TagFilterProps) {
+function TagFilter({
+  label = 'posts',
+  markdowns,
+  selectedTag,
+}: TagFilterProps) {
+  const tags = Array.from(
+    markdowns.reduce((acc, cur) => {
+      cur.metadata.tags?.forEach((tag) => acc.add(tag));
+      return acc;
+    }, new Set<string>()),
+  );
   const tagsWithAll = ['All', ...tags];
+  const matchedPostCount = selectedTag
+    ? markdowns.filter((markdown) =>
+        markdown.metadata.tags?.includes(selectedTag),
+      ).length
+    : markdowns.length;
 
   return (
     <div className="layout-width flex flex-col items-center">
@@ -18,7 +35,7 @@ function TagFilter({ tags, selectedTag, matchedPostCount }: TagFilterProps) {
       </h1>
       <Space className="h-2" />
       <p className="text-zinc-500 dark:text-zinc-400">
-        {matchedPostCount} posts
+        {matchedPostCount} {label}
       </p>
       <Space className="h-8" />
       <TagList tags={tagsWithAll} selectedTag={selectedTag} />
