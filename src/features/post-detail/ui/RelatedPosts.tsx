@@ -1,16 +1,17 @@
 import Link from 'next/link';
 
 import { getRelatedPosts } from '@/features/post-detail/lib';
-import { getMarkdowns, type Markdown } from '@/shared/lib/markdownUtils';
 import { Space } from '@/shared/ui';
 
+import type { Markdown } from '@/shared/lib/markdownUtils';
+
 interface RelatedPostsProps {
-  post: Markdown;
+  allPosts: Markdown[];
+  currentPost: Markdown;
 }
 
-function RelatedPosts({ post }: RelatedPostsProps) {
-  const posts = getMarkdowns('posts');
-  const relatedPosts = getRelatedPosts(post, posts);
+function RelatedPosts({ currentPost, allPosts }: RelatedPostsProps) {
+  const relatedPosts = getRelatedPosts(currentPost, allPosts);
 
   if (!relatedPosts.length) {
     return null;

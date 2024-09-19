@@ -1,7 +1,8 @@
 import { ActionButtons } from '@/features/action-button';
 import { PostDetail, RelatedPosts } from '@/features/post-detail';
+import { PreviousNextPost } from '@/features/previous-next-post';
 import { TableOfContents } from '@/features/table-of-contents';
-import { getMarkdown } from '@/shared/lib/markdownUtils';
+import { getMarkdown, getMarkdowns } from '@/shared/lib/markdownUtils';
 import { Space } from '@/shared/ui';
 
 interface PostPageProps {
@@ -12,6 +13,7 @@ interface PostPageProps {
 
 function PostPage({ params }: PostPageProps) {
   const post = getMarkdown(params.slug, 'posts');
+  const posts = getMarkdowns('posts');
 
   return (
     <section className="layout-width">
@@ -32,7 +34,9 @@ function PostPage({ params }: PostPageProps) {
         slug={post.slug}
       />
       <Space className="h-8 xs:h-12" />
-      <RelatedPosts post={post} />
+      <RelatedPosts currentPost={post} allPosts={posts} />
+      <Space className="h-6 xs:h-8" />
+      <PreviousNextPost currentPost={post} allPosts={posts} />
     </section>
   );
 }
