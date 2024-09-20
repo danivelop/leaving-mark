@@ -1,2 +1,1 @@
-export { PostDetail } from './ui';
-export { RelatedPosts } from './ui';
+export { PostDetail, RelatedPosts } from './ui';

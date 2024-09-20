@@ -2,11 +2,11 @@ import { Space } from '@/shared/ui';
 
 import TagList from './TagList';
 
-import type { Markdown } from '@/shared/lib/markdownUtils';
+import type { Post } from '@/entities/markdown';
 
 interface TagFilterProps {
   label?: 'posts' | 'projects';
-  markdowns: Markdown[];
+  markdowns: Post[];
   selectedTag?: string;
 }
 

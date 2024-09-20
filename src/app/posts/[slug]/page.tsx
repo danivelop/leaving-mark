@@ -1,9 +1,9 @@
+import { getMarkdown, getMarkdowns } from '@/entities/markdown';
 import { ActionButtons } from '@/features/action-button';
 import { Utterances } from '@/features/comment';
 import { PostDetail, RelatedPosts } from '@/features/post-detail';
 import { PreviousNextPost } from '@/features/previous-next-post';
 import { TableOfContents } from '@/features/table-of-contents';
-import { getMarkdown, getMarkdowns } from '@/shared/lib/markdownUtils';
 import { Space } from '@/shared/ui';
 
 interface PostPageProps {

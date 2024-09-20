@@ -1,9 +1,9 @@
-import { PostItem } from '@/entities/post';
+import PostItem from './PostItem';
 
-import type { Markdown } from '@/shared/lib/markdownUtils';
+import type { Post } from '@/entities/markdown';
 
 interface PostListProps {
-  posts: Markdown[];
+  posts: Post[];
   selectedTag?: string;
 }
 

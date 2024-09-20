@@ -1,10 +1,10 @@
-import type { Markdown } from '@/shared/lib/markdownUtils';
+import type { Post } from '@/entities/markdown';
 
-export function getRelatedPosts(sourcePost: Markdown, targetPosts: Markdown[]) {
+export function getRelatedPosts(sourcePost: Post, targetPosts: Post[]) {
   const sourceTags = new Set(sourcePost.metadata.tags ?? []);
 
   return targetPosts
-    .reduce<{ post: Markdown; score: number }[]>((acc, cur) => {
+    .reduce<{ post: Post; score: number }[]>((acc, cur) => {
       if (cur.slug === sourcePost.slug) {
         return acc;
       }

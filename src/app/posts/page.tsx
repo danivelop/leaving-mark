@@ -1,6 +1,6 @@
+import { getMarkdowns } from '@/entities/markdown';
 import { PostList } from '@/features/post-list';
 import { TagFilter } from '@/features/tag-filter';
-import { getMarkdowns } from '@/shared/lib/markdownUtils';
 import { Space } from '@/shared/ui';
 
 interface PostsPageProps {

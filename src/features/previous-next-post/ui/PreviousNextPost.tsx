@@ -1,11 +1,11 @@
 import NextPost from './NextPost';
 import PreviousPost from './PreviousPost';
 
-import type { Markdown } from '@/shared/lib/markdownUtils';
+import type { Post } from '@/entities/markdown';
 
 interface PreviousNextPostProps {
-  allPosts: Markdown[];
-  currentPost: Markdown;
+  allPosts: Post[];
+  currentPost: Post;
 }
 
 function PreviousNextPost({ currentPost, allPosts }: PreviousNextPostProps) {

@@ -1,10 +1,10 @@
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 
-import type { Markdown } from '@/shared/lib/markdownUtils';
+import type { Post } from '@/entities/markdown';
 
 interface PreviousPostProps {
-  post: Markdown;
+  post: Post;
 }
 
 function PreviousPost({ post }: PreviousPostProps) {

@@ -1,14 +1,14 @@
 import Image from 'next/image';
 
-import { Post } from '@/entities/post';
+import { FullMarkdown } from '@/entities/markdown';
 import { Badge, Space } from '@/shared/ui';
 
 import PostAbsoluteDate from './PostAbsoluteDate';
 
-import type { Markdown } from '@/shared/lib/markdownUtils';
+import type { Post } from '@/entities/markdown';
 
 interface PostDetailProps {
-  post: Markdown;
+  post: Post;
 }
 
 function PostDetail({ post }: PostDetailProps) {
@@ -48,7 +48,7 @@ function PostDetail({ post }: PostDetailProps) {
         alt={`${post.metadata.title} image`}
       />
       <Space className="h-6 xs:h-8" />
-      <Post content={post.content} />
+      <FullMarkdown content={post.content} />
     </div>
   );
 }

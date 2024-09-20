@@ -1,15 +1,16 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { MDXThumbParser, Badge } from '@/shared/ui';
+import { ThumbMarkdown } from '@/entities/markdown';
+import { Badge } from '@/shared/ui';
 
 import PostRelativeDate from './PostRelativeDate';
 import ReadingTime from './ReadingTime';
 
-import type { Markdown } from '@/shared/lib/markdownUtils';
+import type { Post } from '@/entities/markdown';
 
 interface PostItemProps {
-  post: Markdown;
+  post: Post;
 }
 
 function PostItem({ post }: PostItemProps) {
@@ -35,7 +36,7 @@ function PostItem({ post }: PostItemProps) {
             </h1>
             {!!post.content && (
               <div className="line-clamp-3 word-style text-zinc-600 dark:text-zinc-300 text-base mt-1 xs:mt-0 md:mt-1">
-                <MDXThumbParser source={post.content} />
+                <ThumbMarkdown content={post.content} />
               </div>
             )}
           </div>

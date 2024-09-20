@@ -1,4 +1,4 @@
-import { MDXFullParser } from '@/shared/ui';
+import MDXFullParser from './MDXFullParser';
 
 interface PostProps {
   content: string;

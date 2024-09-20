@@ -3,11 +3,11 @@ import Link from 'next/link';
 import { getRelatedPosts } from '@/features/post-detail/lib';
 import { Space } from '@/shared/ui';
 
-import type { Markdown } from '@/shared/lib/markdownUtils';
+import type { Post } from '@/entities/markdown';
 
 interface RelatedPostsProps {
-  allPosts: Markdown[];
-  currentPost: Markdown;
+  allPosts: Post[];
+  currentPost: Post;
 }
 
 function RelatedPosts({ currentPost, allPosts }: RelatedPostsProps) {
