@@ -82,7 +82,7 @@ function Contents({ tableOfContents }: ContentsProps) {
           className={`
               ${getIndentationStyle(toc.tag)}
               leading-tight
-              ${activeToc === getHeadingIdentity(toc.value) ? 'text-theme-700 font-bold' : 'text-zinc-600 dark:text-zinc-400 hover:text-theme-700 dark:hover:text-theme-400"'}
+              ${activeToc === getHeadingIdentity(toc.value) ? 'text-theme-700 font-bold scale-105 transition-transform' : 'text-zinc-600 dark:text-zinc-400 hover:text-theme-700 dark:hover:text-theme-400"'}
             `}
         >
           <a
