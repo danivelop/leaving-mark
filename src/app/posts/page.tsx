@@ -16,7 +16,7 @@ function PostsPage({ searchParams }: PostsPageProps) {
   return (
     <section>
       <article>
-        <TagFilter markdowns={posts} selectedTag={searchParams.tag} />
+        <TagFilter markdowns={posts} selectedTag={selectedTag} />
       </article>
       <Space className="h-12" />
       <article>

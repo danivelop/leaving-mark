@@ -42,11 +42,11 @@ function SmallNavMenu() {
                 Posts
               </Link>
               <Link
-                href="/project"
-                className={`${pathname === '/project' && 'font-bold'} inline-block rounded-lg px-2 py-1 text-lg text-zinc-600 dark:text-zinc-300 hover:text-theme-700`}
+                href="/projects"
+                className={`${pathname === '/projects' && 'font-bold'} inline-block rounded-lg px-2 py-1 text-lg text-zinc-600 dark:text-zinc-300 hover:text-theme-700`}
                 onClick={close}
               >
-                Project
+                Projects
               </Link>
               <Link
                 href="/about"

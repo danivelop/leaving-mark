@@ -4,11 +4,12 @@ import { useState, useEffect } from 'react';
 
 import { formatRelativeDate } from '@/shared/lib/dateUtils';
 
-interface PostRelativeDateProps {
-  publishedAt: string;
+interface RelativeDateProps {
+  className?: string;
+  date: string;
 }
 
-function PostRelativeDate({ publishedAt }: PostRelativeDateProps) {
+function RelativeDate({ date, className }: RelativeDateProps) {
   const [isko, setIsKo] = useState(false);
 
   useEffect(() => {
@@ -19,10 +20,10 @@ function PostRelativeDate({ publishedAt }: PostRelativeDateProps) {
   }, []);
 
   return (
-    <time className=" text-zinc-500 dark:text-zinc-400">
-      {formatRelativeDate(new Date(publishedAt), isko)}
+    <time className={className}>
+      {formatRelativeDate(new Date(date), isko)}
     </time>
   );
 }
 
-export default PostRelativeDate;
+export default RelativeDate;

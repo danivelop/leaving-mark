@@ -4,11 +4,12 @@ import { useState, useEffect } from 'react';
 
 import { formatAbsoluteDate } from '@/shared/lib/dateUtils';
 
-interface PostAbsoluteDateProps {
-  publishedAt: string;
+interface AbsoluteDateProps {
+  className?: string;
+  date: string;
 }
 
-function PostAbsoluteDate({ publishedAt }: PostAbsoluteDateProps) {
+function AbsoluteDate({ date, className }: AbsoluteDateProps) {
   const [isko, setIsKo] = useState(false);
 
   useEffect(() => {
@@ -19,10 +20,10 @@ function PostAbsoluteDate({ publishedAt }: PostAbsoluteDateProps) {
   }, []);
 
   return (
-    <time className="text-zinc-500 dark:text-zinc-400">
-      {formatAbsoluteDate(new Date(publishedAt), isko)}
+    <time className={className}>
+      {formatAbsoluteDate(new Date(date), isko)}
     </time>
   );
 }
 
-export default PostAbsoluteDate;
+export default AbsoluteDate;

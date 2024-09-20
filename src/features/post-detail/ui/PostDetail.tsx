@@ -1,9 +1,7 @@
 import Image from 'next/image';
 
 import { FullMarkdown } from '@/entities/markdown';
-import { Badge, Space } from '@/shared/ui';
-
-import PostAbsoluteDate from './PostAbsoluteDate';
+import { Badge, Space, AbsoluteDate } from '@/shared/ui';
 
 import type { Post } from '@/entities/markdown';
 
@@ -21,7 +19,10 @@ function PostDetail({ post }: PostDetailProps) {
       </h1>
       <Space className="h-2" />
       <div className="text-sm xs:text-base">
-        <PostAbsoluteDate publishedAt={post.metadata.publishedAt} />
+        <AbsoluteDate
+          className="text-zinc-500 dark:text-zinc-400"
+          date={post.metadata.publishedAt}
+        />
       </div>
       <Space className="h-4" />
       {post.metadata.tags && (

@@ -1,1 +1,6 @@
-export { getMarkdown, getMarkdowns, type Post } from './markdownUtils';
+export {
+  getMarkdown,
+  getMarkdowns,
+  type Post,
+  type Project,
+} from './markdownUtils';

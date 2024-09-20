@@ -2,9 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { ThumbMarkdown } from '@/entities/markdown';
-import { Badge } from '@/shared/ui';
+import { Badge, RelativeDate } from '@/shared/ui';
 
-import PostRelativeDate from './PostRelativeDate';
 import ReadingTime from './ReadingTime';
 
 import type { Post } from '@/entities/markdown';
@@ -42,7 +41,10 @@ function PostItem({ post }: PostItemProps) {
           </div>
           <div className="flex items-center justify-between gap-2 text-xs mt-3 xs:mt-auto">
             <div className="flex items-center space-x-4 min-w-fit">
-              <PostRelativeDate publishedAt={post.metadata.publishedAt} />
+              <RelativeDate
+                className="text-zinc-500 dark:text-zinc-400"
+                date={post.metadata.publishedAt}
+              />
               <ReadingTime content={post.content} />
             </div>
             {post.metadata.tags && (

@@ -1,2 +1,2 @@
-export { getMarkdown, getMarkdowns, type Post } from './lib';
+export { getMarkdown, getMarkdowns, type Post, type Project } from './lib';
 export { FullMarkdown, ThumbMarkdown } from './ui';
