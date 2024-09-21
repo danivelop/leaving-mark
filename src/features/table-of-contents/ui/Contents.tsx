@@ -41,7 +41,7 @@ function Contents({ tableOfContents }: ContentsProps) {
           }
         });
       },
-      { root: null, rootMargin: '-20% 0px -80% 0px', threshold: 0 },
+      { root: null, rootMargin: '-15% 0px -85% 0px', threshold: 0 },
     );
 
     tableOfContents.forEach((toc) => {
