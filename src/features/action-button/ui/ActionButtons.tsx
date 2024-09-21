@@ -88,7 +88,11 @@ function ActionButtons({
               target="_blank"
               rel="noreferrer"
             >
-              <Github className="size-3 xs:w-4 xs:h-4 mr-1" />
+              <span className="sr-only">Navigate to project github link</span>
+              <Github
+                aria-hidden="true"
+                className="size-3 xs:w-4 xs:h-4 mr-1"
+              />
               <span>Github</span>
             </a>
           );
@@ -102,7 +106,11 @@ function ActionButtons({
               target="_blank"
               rel="noreferrer"
             >
-              <ExternalLink className="size-3 xs:w-4 xs:h-4 mr-1" />
+              <span className="sr-only">Navigate to project demo link</span>
+              <ExternalLink
+                aria-hidden="true"
+                className="size-3 xs:w-4 xs:h-4 mr-1"
+              />
               <span>Demo</span>
             </a>
           );
@@ -115,7 +123,11 @@ function ActionButtons({
               onClick={handleLike}
               className="flex items-center h-7 xs:h-8 px-3 py-[6px] rounded-lg transition-colors duration-150 text-zinc-600 hover:text-zinc-100 hover:bg-theme-800 dark:text-zinc-400 dark:hover:text-zinc-100 dark:hover:bg-theme-800 text-xs xs:text-sm"
             >
-              <ThumbsUp className="size-3 xs:w-4 xs:h-4 mr-1" />
+              <span className="sr-only">project like button</span>
+              <ThumbsUp
+                aria-hidden="true"
+                className="size-3 xs:w-4 xs:h-4 mr-1"
+              />
               <span>{likes} Likes</span>
             </button>
           );
@@ -132,10 +144,17 @@ function ActionButtons({
                   : 'text-zinc-600 hover:text-zinc-100 hover:bg-theme-800 dark:text-zinc-400 dark:hover:text-zinc-100 dark:hover:bg-theme-800'
               } flex items-center h-7 xs:h-8 px-3 py-[6px] rounded-lg transition-colors duration-150 text-xs xs:text-sm`}
             >
+              <span className="sr-only">project bookmark button</span>
               {isBookmarked ? (
-                <BookmarkCheck className="size-3 xs:w-4 xs:h-4 mr-1" />
+                <BookmarkCheck
+                  aria-hidden="true"
+                  className="size-3 xs:w-4 xs:h-4 mr-1"
+                />
               ) : (
-                <Bookmark className="size-3 xs:w-4 xs:h-4 mr-1" />
+                <Bookmark
+                  aria-hidden="true"
+                  className="size-3 xs:w-4 xs:h-4 mr-1"
+                />
               )}
               <span>Bookmark</span>
             </button>
@@ -149,7 +168,13 @@ function ActionButtons({
               onClick={handleShare}
               className="flex items-center h-7 xs:h-8 px-3 py-[6px] rounded-lg transition-colors duration-150 text-zinc-600 hover:text-zinc-100 hover:bg-theme-800 dark:text-zinc-400 dark:hover:text-zinc-100 dark:hover:bg-theme-800 text-xs xs:text-sm"
             >
-              <Share2 className="size-3 xs:w-4 xs:h-4 mr-1" />
+              <span className="sr-only">
+                button to copy project link to share
+              </span>
+              <Share2
+                aria-hidden="true"
+                className="size-3 xs:w-4 xs:h-4 mr-1"
+              />
               <span>Share</span>
             </button>
           );

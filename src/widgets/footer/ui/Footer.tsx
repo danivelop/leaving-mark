@@ -30,7 +30,10 @@ function Footer() {
               rel="noopener noreferrer"
               className="text-zinc-600 dark:text-zinc-400 hover:text-theme-700"
             >
-              <Github className="size-5 xs:size-6" />
+              <span className="sr-only">
+                Navigate to blog owner&apos;s github
+              </span>
+              <Github aria-hidden="true" className="size-5 xs:size-6" />
               <span className="sr-only">GitHub</span>
             </a>
             <a
@@ -39,7 +42,10 @@ function Footer() {
               rel="noopener noreferrer"
               className="text-zinc-600 dark:text-zinc-400 hover:text-theme-700"
             >
-              <Mail className="size-5 xs:size-6" />
+              <span className="sr-only">
+                Navigate to blog owner&apos;s email
+              </span>
+              <Mail aria-hidden="true" className="size-5 xs:size-6" />
               <span className="sr-only">Email</span>
             </a>
             <a
@@ -48,7 +54,10 @@ function Footer() {
               rel="noopener noreferrer"
               className="text-zinc-600 dark:text-zinc-400 hover:text-theme-700"
             >
-              <Linkedin className="size-5 xs:size-6" />
+              <span className="sr-only">
+                Navigate to blog owner&apos;s linkedin
+              </span>
+              <Linkedin aria-hidden="true" className="size-5 xs:size-6" />
               <span className="sr-only">LinkedIn</span>
             </a>
           </div>
