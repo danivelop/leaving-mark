@@ -32,7 +32,7 @@ function PostPage({ params }: PostPageProps) {
       <aside className="sticky top-[136px] h-0 ml-[780px] hidden xl:block text-sm z-10">
         {tableOfContents}
       </aside>
-      <aside className="fixed left-full top-0 ml- block xl:hidden text-sm z-10">
+      <aside className="fixed left-full top-0 block xl:hidden text-sm z-30">
         <InteractiveTocWrapper>{tableOfContents}</InteractiveTocWrapper>
       </aside>
       <ActionButtons
