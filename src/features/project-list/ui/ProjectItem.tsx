@@ -80,31 +80,6 @@ function ProjectItem({ project }: ProjectItemProps) {
                 )}
               </div>
             )}
-            {/* <div className="flex items-center justify-between gap-2">
-              {project.metadata.startedAt && (
-                <div className="md:hidden min-w-fit text-xs text-zinc-500 dark:text-zinc-400">
-                  <AbsoluteDate date={project.metadata.startedAt} />
-                  {' ~ '}
-                  {project.metadata.endedAt ? (
-                    <AbsoluteDate date={project.metadata.endedAt} />
-                  ) : (
-                    'Present'
-                  )}
-                </div>
-              )}
-              {project.metadata.tags && (
-                <div className="flex flex-nowrap md:flex-wrap gap-2 overflow-x-auto hide-scrollbar">
-                  {project.metadata.tags.map((tag) => (
-                    <Badge
-                      key={tag}
-                      className="text-[10px] px-1.5 py-0.5 bg-theme-700 text-zinc-100"
-                    >
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
-              )}
-            </div> */}
           </CardContent>
         </Card>
       </Link>
