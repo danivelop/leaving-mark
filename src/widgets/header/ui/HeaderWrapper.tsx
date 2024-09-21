@@ -24,7 +24,7 @@ function HeaderWrapper({ children }: HeaderWrapperProps) {
 
   return (
     <header
-      className={`layout-background-color w-full sticky top-0 left-0 right-0 z-10 py-3 md:py-4 ${isScrolled ? 'shadow-md' : ''}`}
+      className={`layout-background-color w-full sticky top-0 left-0 right-0 z-30 py-3 md:py-4 ${isScrolled ? 'shadow-md' : ''}`}
     >
       {children}
     </header>

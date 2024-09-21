@@ -1,1 +1,1 @@
-export { TableOfContents } from './ui';
+export { InteractiveTocWrapper, TableOfContents } from './ui';

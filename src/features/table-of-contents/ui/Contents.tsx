@@ -74,14 +74,14 @@ function Contents({ tableOfContents }: ContentsProps) {
   }, []);
 
   return (
-    <ul className="ml-2 space-y-2 text-sm">
+    <ul className="ml-2 space-y-2">
       {tableOfContents.map((toc, index) => (
         <li
           // eslint-disable-next-line react/no-array-index-key
           key={`${index}-${toc.tag}-${toc.value}`}
           className={`
               ${getIndentationStyle(toc.tag)}
-              leading-tight transition-transform
+              leading-tight transition-transform truncate
               ${activeToc === getHeadingIdentity(toc.value) ? 'text-theme-700 font-bold scale-105' : 'text-zinc-600 dark:text-zinc-400 hover:text-theme-700 dark:hover:text-theme-400"'}
             `}
         >

@@ -7,7 +7,10 @@ import {
 import { Utterances } from '@/features/comment';
 import { PostDetail, RelatedPosts } from '@/features/post-detail';
 import { PreviousNextPost } from '@/features/previous-next-post';
-import { TableOfContents } from '@/features/table-of-contents';
+import {
+  InteractiveTocWrapper,
+  TableOfContents,
+} from '@/features/table-of-contents';
 import { Space } from '@/shared/ui';
 
 interface PostPageProps {
@@ -20,10 +23,17 @@ function PostPage({ params }: PostPageProps) {
   const post = getMarkdown(params.slug, 'posts');
   const posts = getMarkdowns('posts');
 
+  const tableOfContents = (
+    <TableOfContents className="w-full xl:w-fit" content={post.content} />
+  );
+
   return (
     <section className="layout-width">
-      <aside className="sticky top-[136px] h-0 ml-[780px] hidden xl:block">
-        <TableOfContents content={post.content} />
+      <aside className="sticky top-[136px] h-0 ml-[780px] hidden xl:block text-sm z-10">
+        {tableOfContents}
+      </aside>
+      <aside className="fixed left-full top-0 ml- block xl:hidden text-sm z-10">
+        <InteractiveTocWrapper>{tableOfContents}</InteractiveTocWrapper>
       </aside>
       <ActionButtons
         className="justify-end"
