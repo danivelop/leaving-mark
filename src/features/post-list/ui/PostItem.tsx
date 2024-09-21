@@ -48,7 +48,7 @@ function PostItem({ post }: PostItemProps) {
               <ReadingTime content={post.content} />
             </div>
             {post.metadata.tags && (
-              <div className="flex flex-nowrap gap-2 overflow-hidden">
+              <div className="flex flex-nowrap gap-2 overflow-x-auto hide-scrollbar">
                 {post.metadata.tags.slice(0, 3).map((tag) => (
                   <Badge
                     key={tag}

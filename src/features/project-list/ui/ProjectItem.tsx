@@ -50,26 +50,37 @@ function ProjectItem({ project }: ProjectItemProps) {
               {project.metadata.title}
             </h2>
             <Space className="h-1" />
-            <div className="md:hidden">
-              {!!project.content && (
-                <div className="line-clamp-3 word-style text-zinc-600 dark:text-zinc-300 text-sm">
-                  {thumbMarkdown}
+            {!!project.content && (
+              <div className="md:hidden line-clamp-3 word-style text-zinc-600 dark:text-zinc-300 text-sm">
+                {thumbMarkdown}
+              </div>
+            )}
+            <Space className="h-4 md:h-1" />
+            <div className="flex items-center justify-between gap-2">
+              {project.metadata.startedAt && (
+                <p className="md:hidden min-w-fit text-xs text-zinc-500 dark:text-zinc-400">
+                  <AbsoluteDate date={project.metadata.startedAt} />
+                  {' ~ '}
+                  {project.metadata.endedAt ? (
+                    <AbsoluteDate date={project.metadata.endedAt} />
+                  ) : (
+                    'Present'
+                  )}
+                </p>
+              )}
+              {project.metadata.tags && (
+                <div className="flex flex-nowrap md:flex-wrap gap-2 overflow-x-auto hide-scrollbar">
+                  {project.metadata.tags.map((tag) => (
+                    <Badge
+                      key={tag}
+                      className="text-[10px] px-1.5 py-0.5 bg-theme-700 text-zinc-100"
+                    >
+                      {tag}
+                    </Badge>
+                  ))}
                 </div>
               )}
             </div>
-            <Space className="h-4 md:h-1" />
-            {project.metadata.tags && (
-              <div className="flex flex-wrap gap-2">
-                {project.metadata.tags.map((tag) => (
-                  <Badge
-                    key={tag}
-                    className="text-[10px] px-1.5 py-0.5 bg-theme-700 text-zinc-100"
-                  >
-                    {tag}
-                  </Badge>
-                ))}
-              </div>
-            )}
           </CardContent>
         </Card>
       </Link>
