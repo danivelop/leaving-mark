@@ -1,0 +1,6 @@
+enum ACTION_NAMESPACE {
+  POST = 'POST',
+  PROJECT = 'PROJECT',
+}
+
+export default ACTION_NAMESPACE;

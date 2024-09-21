@@ -33,7 +33,7 @@ function ProjectItem({ project }: ProjectItemProps) {
                 </div>
               )}
               {project.metadata.startedAt && (
-                <p className="text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <AbsoluteDate date={project.metadata.startedAt} />
                   {' ~ '}
                   {project.metadata.endedAt ? (
@@ -41,7 +41,7 @@ function ProjectItem({ project }: ProjectItemProps) {
                   ) : (
                     'Present'
                   )}
-                </p>
+                </div>
               )}
             </div>
           </div>
@@ -58,7 +58,7 @@ function ProjectItem({ project }: ProjectItemProps) {
             <Space className="h-4 md:h-1" />
             <div className="flex items-center justify-between gap-2">
               {project.metadata.startedAt && (
-                <p className="md:hidden min-w-fit text-xs text-zinc-500 dark:text-zinc-400">
+                <div className="md:hidden min-w-fit text-xs text-zinc-500 dark:text-zinc-400">
                   <AbsoluteDate date={project.metadata.startedAt} />
                   {' ~ '}
                   {project.metadata.endedAt ? (
@@ -66,7 +66,7 @@ function ProjectItem({ project }: ProjectItemProps) {
                   ) : (
                     'Present'
                   )}
-                </p>
+                </div>
               )}
               {project.metadata.tags && (
                 <div className="flex flex-nowrap md:flex-wrap gap-2 overflow-x-auto hide-scrollbar">

@@ -3,14 +3,11 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { immer } from 'zustand/middleware/immer';
 
-import { createPostSlice } from './createPostSlice';
-import { createThemeSlice } from './createThemeSlice';
-
-import type { PostSliceState } from './createPostSlice';
-import type { ThemeSliceState } from './createThemeSlice';
+import { createActionSlice, type ActionSliceState } from './createActionSlice';
+import { createThemeSlice, type ThemeSliceState } from './createThemeSlice';
 
 export interface RootSliceState {
-  postSlice: PostSliceState;
+  actionSlice: ActionSliceState;
   themeSlice: ThemeSliceState;
 }
 
@@ -19,7 +16,7 @@ enableMapSet();
 const useStore = create<RootSliceState>()(
   persist(
     immer((set, get, store) => ({
-      postSlice: createPostSlice(set, get, store),
+      actionSlice: createActionSlice(set, get, store),
       themeSlice: createThemeSlice(set, get, store),
     })),
     {

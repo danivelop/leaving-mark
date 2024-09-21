@@ -1,5 +1,9 @@
 import { getMarkdown, getMarkdowns } from '@/entities/markdown';
-import { ActionButtons } from '@/features/action-button';
+import {
+  ActionButtons,
+  ACTION_NAMESPACE,
+  ACTION_TYPE,
+} from '@/features/action-button';
 import { Utterances } from '@/features/comment';
 import { PostDetail, RelatedPosts } from '@/features/post-detail';
 import { PreviousNextPost } from '@/features/previous-next-post';
@@ -24,6 +28,12 @@ function PostPage({ params }: PostPageProps) {
       <ActionButtons
         className="justify-start xs:justify-end"
         slug={post.slug}
+        namespace={ACTION_NAMESPACE.POST}
+        actionTypes={[
+          ACTION_TYPE.LIKES,
+          ACTION_TYPE.BOOKMARK,
+          ACTION_TYPE.SHARE,
+        ]}
       />
       <Space className="h-8" />
       <article>
@@ -33,6 +43,12 @@ function PostPage({ params }: PostPageProps) {
       <ActionButtons
         className="justify-start xs:justify-end"
         slug={post.slug}
+        namespace={ACTION_NAMESPACE.POST}
+        actionTypes={[
+          ACTION_TYPE.LIKES,
+          ACTION_TYPE.BOOKMARK,
+          ACTION_TYPE.SHARE,
+        ]}
       />
       <Space className="h-8 xs:h-12" />
       <RelatedPosts currentPost={post} allPosts={posts} />

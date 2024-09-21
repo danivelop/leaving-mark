@@ -1,0 +1,9 @@
+enum ACTION_TYPE {
+  BOOKMARK = 'BOOKMARK',
+  DEMO = 'DEMO',
+  GITHUB = 'GITHUB',
+  LIKES = 'LIKES',
+  SHARE = 'SHARE',
+}
+
+export default ACTION_TYPE;
