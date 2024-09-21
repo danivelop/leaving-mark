@@ -22,7 +22,7 @@ function PostPage({ params }: PostPageProps) {
 
   return (
     <section className="layout-width">
-      <aside className="sticky top-28 h-0 ml-[780px] hidden xl:block">
+      <aside className="sticky top-[136px] h-0 ml-[780px] hidden xl:block">
         <TableOfContents content={post.content} />
       </aside>
       <ActionButtons
