@@ -49,7 +49,7 @@ function PostItem({ post }: PostItemProps) {
             </div>
             {post.metadata.tags && (
               <div className="flex flex-nowrap gap-2 overflow-x-auto hide-scrollbar">
-                {post.metadata.tags.slice(0, 3).map((tag) => (
+                {post.metadata.tags.map((tag) => (
                   <Badge
                     key={tag}
                     className="text-[10px] px-1.5 py-0.5 bg-theme-700 text-zinc-100"

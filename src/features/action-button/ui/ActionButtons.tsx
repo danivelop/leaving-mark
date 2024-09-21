@@ -77,7 +77,7 @@ function ActionButtons({
   }, [initializeBookmarkeds]);
 
   return (
-    <div className={`${className} flex items-center space-x-2`}>
+    <div className={`${className} flex items-center gap-2 flex-wrap`}>
       {actionTypes.map((actionType) => {
         if (actionType === ACTION_TYPE.GITHUB && github) {
           return (

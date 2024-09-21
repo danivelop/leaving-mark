@@ -20,7 +20,7 @@ function ProjectPage({ params }: ProjectPageProps) {
   return (
     <section className="layout-width">
       <ActionButtons
-        className="justify-start xs:justify-end"
+        className="justify-end"
         slug={project.slug}
         github={project.metadata.github}
         demo={project.metadata.demo}

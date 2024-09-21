@@ -28,7 +28,7 @@ function RelatedPosts({ currentPost, allPosts }: RelatedPostsProps) {
           <li key={relatedPost.slug}>
             <Link
               href={`/posts/${relatedPost.slug}`}
-              className="text-sm xs:text-base text-zinc-600 dark:text-zinc-400 hover:text-theme-700 transition-colors duration-200"
+              className="block truncate text-sm xs:text-base text-zinc-600 dark:text-zinc-400 hover:text-theme-700 transition-colors duration-200"
             >
               {relatedPost.slug}
             </Link>

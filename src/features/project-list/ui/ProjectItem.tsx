@@ -55,8 +55,32 @@ function ProjectItem({ project }: ProjectItemProps) {
                 {thumbMarkdown}
               </div>
             )}
-            <Space className="h-4 md:h-1" />
-            <div className="flex items-center justify-between gap-2">
+            <Space className="h-2 md:h-1" />
+            {project.metadata.tags && (
+              <div className="flex gap-2 flex-wrap">
+                {project.metadata.tags.map((tag) => (
+                  <Badge
+                    key={tag}
+                    className="text-[10px] px-1.5 py-0.5 bg-theme-700 text-zinc-100"
+                  >
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
+            )}
+            <Space className="h-8 md:h-0" />
+            {project.metadata.startedAt && (
+              <div className="md:hidden text-xs text-zinc-500 dark:text-zinc-400">
+                <AbsoluteDate date={project.metadata.startedAt} />
+                {' ~ '}
+                {project.metadata.endedAt ? (
+                  <AbsoluteDate date={project.metadata.endedAt} />
+                ) : (
+                  'Present'
+                )}
+              </div>
+            )}
+            {/* <div className="flex items-center justify-between gap-2">
               {project.metadata.startedAt && (
                 <div className="md:hidden min-w-fit text-xs text-zinc-500 dark:text-zinc-400">
                   <AbsoluteDate date={project.metadata.startedAt} />
@@ -80,7 +104,7 @@ function ProjectItem({ project }: ProjectItemProps) {
                   ))}
                 </div>
               )}
-            </div>
+            </div> */}
           </CardContent>
         </Card>
       </Link>

@@ -26,7 +26,7 @@ function PostPage({ params }: PostPageProps) {
         <TableOfContents content={post.content} />
       </aside>
       <ActionButtons
-        className="justify-start xs:justify-end"
+        className="justify-end"
         slug={post.slug}
         namespace={ACTION_NAMESPACE.POST}
         actionTypes={[
@@ -39,9 +39,9 @@ function PostPage({ params }: PostPageProps) {
       <article>
         <PostDetail post={post} />
       </article>
-      <Space className="h-8" />
+      <Space className="h-16" />
       <ActionButtons
-        className="justify-start xs:justify-end"
+        className="justify-end"
         slug={post.slug}
         namespace={ACTION_NAMESPACE.POST}
         actionTypes={[
@@ -50,7 +50,7 @@ function PostPage({ params }: PostPageProps) {
           ACTION_TYPE.SHARE,
         ]}
       />
-      <Space className="h-8 xs:h-12" />
+      <hr className="block my-8 border-zinc-200 dark:border-zinc-700" />
       <RelatedPosts currentPost={post} allPosts={posts} />
       <Space className="h-6 xs:h-8" />
       <PreviousNextPost currentPost={post} allPosts={posts} />

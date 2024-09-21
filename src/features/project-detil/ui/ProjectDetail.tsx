@@ -21,7 +21,7 @@ function ProjectDetail({ project }: ProjectDetailProps) {
       <Space className="h-2" />
       {project.metadata.startedAt && (
         <div className="flex items-center text-zinc-500 dark:text-zinc-400 text-sm xs:text-base">
-          <Calendar className="w-4 h-4 mr-2" />
+          <Calendar className="size-4 mr-2" />
           <AbsoluteDate date={project.metadata.startedAt} />
           {' ~ '}
           {project.metadata.endedAt ? (

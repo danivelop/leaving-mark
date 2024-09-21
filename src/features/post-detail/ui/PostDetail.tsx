@@ -1,7 +1,10 @@
+import { Calendar } from 'lucide-react';
 import Image from 'next/image';
 
 import { FullMarkdown } from '@/entities/markdown';
 import { Badge, Space, AbsoluteDate } from '@/shared/ui';
+
+import Writter from './Writter';
 
 import type { Post } from '@/entities/markdown';
 
@@ -18,11 +21,9 @@ function PostDetail({ post }: PostDetailProps) {
         {post.metadata.title}
       </h1>
       <Space className="h-2" />
-      <div className="text-sm xs:text-base">
-        <AbsoluteDate
-          className="text-zinc-500 dark:text-zinc-400"
-          date={post.metadata.publishedAt}
-        />
+      <div className="flex items-center text-zinc-500 dark:text-zinc-400 text-sm xs:text-base">
+        <Calendar className="size-4 mr-2" />
+        <AbsoluteDate date={post.metadata.publishedAt} />
       </div>
       <Space className="h-4" />
       {post.metadata.tags && (
@@ -50,6 +51,8 @@ function PostDetail({ post }: PostDetailProps) {
       />
       <Space className="h-6 xs:h-8" />
       <FullMarkdown content={post.content} />
+      <Space className="h-8" />
+      <Writter />
     </div>
   );
 }
