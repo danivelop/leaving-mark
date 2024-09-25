@@ -7,37 +7,50 @@ function sitemap(): MetadataRoute.Sitemap {
   const posts = getMarkdowns('posts');
   const projects = getMarkdowns('projects');
 
+  const latestPostDate = posts.reduce((latest, post) => {
+    const date = new Date(post.metadata.publishedAt);
+    return date > latest ? date : latest;
+  }, new Date(0));
+
+  const latestProjectDate = projects.reduce((latest, project) => {
+    const date = new Date(project.metadata.publishedAt);
+    return date > latest ? date : latest;
+  }, new Date(0));
+
+  const homeLastModified =
+    latestPostDate > latestProjectDate ? latestPostDate : latestProjectDate;
+
   const postSiteMaps: MetadataRoute.Sitemap = posts.map((post) => ({
     url: `${BASE_URL}/posts/${post.slug}`,
-    lastModified: post.metadata.publishedAt,
-    changeFrequency: 'yearly',
-    priority: 1,
+    lastModified: new Date(post.metadata.publishedAt),
+    changeFrequency: 'monthly',
+    priority: 0.9,
   }));
 
   const projectSiteMaps: MetadataRoute.Sitemap = projects.map((project) => ({
     url: `${BASE_URL}/projects/${project.slug}`,
-    lastModified: project.metadata.publishedAt,
-    changeFrequency: 'yearly',
-    priority: 1,
+    lastModified: new Date(project.metadata.publishedAt),
+    changeFrequency: 'monthly',
+    priority: 0.9,
   }));
 
   return [
     {
       url: `${BASE_URL}`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
+      lastModified: homeLastModified,
+      changeFrequency: 'weekly',
+      priority: 1,
     },
     {
       url: `${BASE_URL}/posts`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
+      lastModified: latestPostDate,
+      changeFrequency: 'weekly',
+      priority: 0.8,
     },
     {
       url: `${BASE_URL}/projects`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
+      lastModified: latestProjectDate,
+      changeFrequency: 'weekly',
       priority: 0.7,
     },
     ...postSiteMaps,
