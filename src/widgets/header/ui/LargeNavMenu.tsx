@@ -24,7 +24,7 @@ function LargeNavMenu() {
         href="/about"
         className={`${pathname === '/about' && 'font-bold'} inline-block rounded-lg px-2 py-1 text-zinc-600 dark:text-zinc-300 hover:text-theme-700`}
       >
-        About
+        <s>About</s>
       </Link>
     </nav>
   );
