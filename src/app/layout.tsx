@@ -11,7 +11,8 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: "danivelop's blog",
-  description: "danivelop's blog",
+  description:
+    'danivelop 블로그입니다. 개발관련 포스트, 토이 프로젝트, 그 외 이것저것 기록하고 있습니다.',
 };
 
 export default function RootLayout({

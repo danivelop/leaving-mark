@@ -1,1 +1,3 @@
-export const BASE_URL = 'https://danivelop.com';
+/* eslint-disable */
+
+export const BASE_URL = process.env.BASE_URL as string;

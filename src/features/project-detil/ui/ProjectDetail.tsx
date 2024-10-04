@@ -11,7 +11,7 @@ interface ProjectDetailProps {
 }
 
 function ProjectDetail({ project }: ProjectDetailProps) {
-  const imageSrc = project.metadata.image ?? '/post-image/default.png';
+  const imageSrc = project.metadata.image ?? '/images/default.png';
 
   return (
     <div className="word-style flex flex-col">

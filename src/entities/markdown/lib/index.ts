@@ -1,4 +1,5 @@
 export {
+  getMetadata,
   getMarkdown,
   getMarkdowns,
   type Post,

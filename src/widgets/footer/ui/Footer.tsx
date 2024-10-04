@@ -63,7 +63,7 @@ function Footer() {
           </div>
         </div>
         <p className="mt-6 xs:mt-8 text-center text-xs xs:text-sm text-zinc-500 dark:text-zinc-400">
-          © Daeyong Yoon all rights reserved.
+          © {new Date().getFullYear()} Daeyong Yoon all rights reserved.
         </p>
       </div>
     </footer>

@@ -1,4 +1,4 @@
-import { getMarkdown } from '@/entities/markdown';
+import { getMetadata, getMarkdown } from '@/entities/markdown';
 import {
   ActionButtons,
   ACTION_NAMESPACE,
@@ -8,9 +8,24 @@ import { Utterances } from '@/features/comment';
 import { ProjectDetail } from '@/features/project-detil';
 import { Space } from '@/shared/ui';
 
+import type { Metadata } from 'next';
+
 interface ProjectPageProps {
   params: {
     slug: string;
+  };
+}
+
+export function generateMetadata({ params }: ProjectPageProps): Metadata {
+  const metadata = getMetadata(params.slug, 'projects');
+
+  return {
+    title: metadata.title,
+    description: metadata.description ?? '',
+    openGraph: {
+      title: metadata.title,
+      description: metadata.description ?? '',
+    },
   };
 }
 

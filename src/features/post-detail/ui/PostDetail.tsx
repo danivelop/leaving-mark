@@ -13,7 +13,7 @@ interface PostDetailProps {
 }
 
 function PostDetail({ post }: PostDetailProps) {
-  const imageSrc = post.metadata.image ?? '/post-image/default.png';
+  const imageSrc = post.metadata.image ?? '/images/default.png';
 
   return (
     <div className="word-style flex flex-col">

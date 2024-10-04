@@ -11,7 +11,7 @@ interface ProjectItemProps {
 }
 
 function ProjectItem({ project }: ProjectItemProps) {
-  const imageSrc = project.metadata.image ?? '/post-image/default.png';
+  const imageSrc = project.metadata.image ?? '/images/default.png';
   const thumbMarkdown = <ThumbMarkdown content={project.content} />;
 
   return (

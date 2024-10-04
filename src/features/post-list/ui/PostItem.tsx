@@ -13,7 +13,7 @@ interface PostItemProps {
 }
 
 function PostItem({ post }: PostItemProps) {
-  const imageSrc = post.metadata.image ?? '/post-image/default.png';
+  const imageSrc = post.metadata.image ?? '/images/default.png';
 
   return (
     <li className="group">

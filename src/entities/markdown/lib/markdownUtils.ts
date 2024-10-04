@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 type PostMetadata = {
+  description?: string;
   image?: string;
   publishedAt: string;
   tags?: string[];
@@ -29,11 +30,11 @@ export type Project = {
 
 type Metadata = PostMetadata | ProjectMetadata;
 
-function parseFrontmatter(fileContent: string) {
-  const frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
+const frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
+
+function parseMetadata(fileContent: string) {
   const match = frontmatterRegex.exec(fileContent);
   const frontMatterBlock = match![1];
-  const content = fileContent.replace(frontmatterRegex, '').trim();
   const frontMatterLines = frontMatterBlock.trim().split('\n');
   const metadata: Partial<Metadata> = {};
 
@@ -48,11 +49,38 @@ function parseFrontmatter(fileContent: string) {
     }
   });
 
-  return { metadata: metadata as Metadata, content };
+  return metadata as Metadata;
+}
+
+function parseFrontmatter(fileContent: string) {
+  const metadata = parseMetadata(fileContent);
+  const content = fileContent.replace(frontmatterRegex, '').trim();
+
+  return { metadata, content };
 }
 
 function getMarkdownDir(directoryName: string) {
   return path.join(process.cwd(), directoryName);
+}
+
+export function getMetadata(
+  fileName: string,
+  directoryName: 'posts',
+): PostMetadata;
+export function getMetadata(
+  fileName: string,
+  directoryName: 'projects',
+): ProjectMetadata;
+export function getMetadata(
+  fileName: string,
+  directoryName: 'posts' | 'projects',
+) {
+  const markdownDir = getMarkdownDir(directoryName);
+  const markdownPath = path.join(markdownDir, `${fileName}.mdx`);
+  const rawContent = fs.readFileSync(markdownPath, 'utf-8');
+  const metadata = parseMetadata(rawContent);
+
+  return metadata;
 }
 
 export function getMarkdown(fileName: string, directoryName: 'posts'): Post;

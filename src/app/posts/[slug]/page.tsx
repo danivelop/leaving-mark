@@ -1,4 +1,4 @@
-import { getMarkdown, getMarkdowns } from '@/entities/markdown';
+import { getMetadata, getMarkdown, getMarkdowns } from '@/entities/markdown';
 import {
   ActionButtons,
   ACTION_NAMESPACE,
@@ -13,9 +13,24 @@ import {
 } from '@/features/table-of-contents';
 import { Space } from '@/shared/ui';
 
+import type { Metadata } from 'next';
+
 interface PostPageProps {
   params: {
     slug: string;
+  };
+}
+
+export function generateMetadata({ params }: PostPageProps): Metadata {
+  const metadata = getMetadata(params.slug, 'posts');
+
+  return {
+    title: metadata.title,
+    description: metadata.description ?? '',
+    openGraph: {
+      title: metadata.title,
+      description: metadata.description ?? '',
+    },
   };
 }
 
