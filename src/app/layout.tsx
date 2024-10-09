@@ -2,6 +2,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 
 import { Toaster } from '@/shared/ui';
+import { ChannelTalk } from '@/widgets/channel-talk';
 import { Footer } from '@/widgets/footer';
 import { Header } from '@/widgets/header';
 
@@ -31,6 +32,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <Toaster />
+        <ChannelTalk />
       </body>
     </html>
   );
