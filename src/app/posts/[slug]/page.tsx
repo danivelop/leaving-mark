@@ -54,7 +54,11 @@ function PostPage({ params }: PostPageProps) {
         className="justify-end"
         slug={post.slug}
         namespace={ACTION_NAMESPACE.POST}
-        actionTypes={[ACTION_TYPE.SHARE]}
+        actionTypes={[
+          ACTION_TYPE.LIKES,
+          ACTION_TYPE.BOOKMARK,
+          ACTION_TYPE.SHARE,
+        ]}
       />
       <Space className="h-8" />
       <article>
@@ -65,7 +69,11 @@ function PostPage({ params }: PostPageProps) {
         className="justify-end"
         slug={post.slug}
         namespace={ACTION_NAMESPACE.POST}
-        actionTypes={[ACTION_TYPE.SHARE]}
+        actionTypes={[
+          ACTION_TYPE.LIKES,
+          ACTION_TYPE.BOOKMARK,
+          ACTION_TYPE.SHARE,
+        ]}
       />
       <hr className="block my-8 border-zinc-200 dark:border-zinc-700" />
       <RelatedPosts currentPost={post} allPosts={posts} />
