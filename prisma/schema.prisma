@@ -12,3 +12,11 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+model PostLike {
+  id    Int      @id @default(autoincrement())
+  slug  String   @unique
+  count Int      @default(0)
+
+  @@map("post_likes")
+}
