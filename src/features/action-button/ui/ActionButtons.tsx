@@ -8,10 +8,12 @@ import {
   Github,
   ExternalLink,
 } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import { ACTION_NAMESPACE, ACTION_TYPE } from '@/features/action-button/consts';
+import { getKey } from '@/features/action-button/lib';
 import { useToast } from '@/shared/hooks';
+import { Spinner } from '@/shared/ui';
 import { useStore } from '@/store';
 
 interface ActionButtonsProps {
@@ -20,7 +22,7 @@ interface ActionButtonsProps {
   demo?: string;
   github?: string;
   namespace?: ACTION_NAMESPACE;
-  slug?: string;
+  slug: string;
 }
 
 function ActionButtons({
@@ -32,22 +34,34 @@ function ActionButtons({
   actionTypes,
 }: ActionButtonsProps) {
   const { toast } = useToast();
+  const [fetchingLikes, setFetchingLikes] = useState(true);
 
-  const bookmarkeds = useStore((state) => state.actionSlice.bookmarkeds);
-  const initializeBookmarkeds = useStore(
-    (state) => state.actionSlice.initializeBookmarkeds,
+  const likes = useStore((state) => state.actionSlice.likes);
+  const likeCount = useStore((state) => state.actionSlice.likeCount);
+  const bookmarks = useStore((state) => state.actionSlice.bookmarks);
+  const initializeLikes = useStore(
+    (state) => state.actionSlice.initializeLikes,
   );
-  const setBookmarkeds = useStore((state) => state.actionSlice.setBookmarkeds);
+  const initializeBookmarks = useStore(
+    (state) => state.actionSlice.initializeBookmarks,
+  );
+  const setLikes = useStore((state) => state.actionSlice.setLikes);
+  const setBookmarks = useStore((state) => state.actionSlice.setBookmarks);
+  const resetLikeCount = useStore((state) => state.actionSlice.resetLikeCount);
 
-  const [likes, setLikes] = useState(0);
-  const isBookmarked = bookmarkeds.has(`${namespace}-${slug}`);
+  const hasLike = actionTypes.includes(ACTION_TYPE.LIKES);
+  const hasBookmark = actionTypes.includes(ACTION_TYPE.BOOKMARK);
+  const isLiked = hasLike && likes.has(getKey(namespace, slug));
+  const isBookmarked = hasBookmark && bookmarks.has(getKey(namespace, slug));
 
   const handleLike = () => {
-    setLikes((prev) => prev + 1);
+    setFetchingLikes(true);
+    setLikes(namespace, slug);
+    setFetchingLikes(false);
   };
 
   const handleBookmark = () => {
-    setBookmarkeds(`${namespace}-${slug}`);
+    setBookmarks(namespace, slug);
   };
 
   const handleShare = () => {
@@ -73,8 +87,24 @@ function ActionButtons({
   };
 
   useEffect(() => {
-    initializeBookmarkeds();
-  }, [initializeBookmarkeds]);
+    if (hasLike) {
+      initializeLikes(namespace, slug).then(() => {
+        setFetchingLikes(false);
+      });
+
+      return () => {
+        resetLikeCount();
+      };
+    }
+
+    return () => {};
+  }, [hasLike, initializeLikes, namespace, resetLikeCount, slug]);
+
+  useEffect(() => {
+    if (hasBookmark) {
+      initializeBookmarks();
+    }
+  }, [hasBookmark, initializeBookmarks]);
 
   return (
     <div className={`${className} flex items-center gap-2 flex-wrap`}>
@@ -121,14 +151,27 @@ function ActionButtons({
               key={actionType}
               type="button"
               onClick={handleLike}
-              className="flex items-center h-7 xs:h-8 px-3 py-[6px] rounded-lg transition-colors duration-150 text-zinc-600 hover:text-zinc-100 hover:bg-theme-800 dark:text-zinc-400 dark:hover:text-zinc-100 dark:hover:bg-theme-800 text-xs xs:text-sm"
+              className={`${
+                isLiked
+                  ? 'text-theme-700 bg-theme-700/10 hover:bg-theme-800 hover:text-zinc-100 dark:text-theme-400 dark:bg-theme-700/20 dark:hover:bg-theme-800 dark:hover:text-zinc-100'
+                  : 'text-zinc-600 hover:text-zinc-100 hover:bg-theme-800 dark:text-zinc-400 dark:hover:text-zinc-100 dark:hover:bg-theme-800'
+              } flex items-center h-7 xs:h-8 px-3 py-[6px] rounded-lg transition-colors duration-150 text-xs xs:text-sm`}
             >
               <span className="sr-only">project like button</span>
               <ThumbsUp
                 aria-hidden="true"
                 className="size-3 xs:w-4 xs:h-4 mr-1"
               />
-              <span>{likes} Likes</span>
+              <span>
+                {fetchingLikes ? (
+                  <span className="flex items-center">
+                    <Spinner />
+                    <span>&nbsp;Likes</span>
+                  </span>
+                ) : (
+                  `${likeCount} Likes`
+                )}
+              </span>
             </button>
           );
         }

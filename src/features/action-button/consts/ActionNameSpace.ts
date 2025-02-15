@@ -1,6 +1,6 @@
 enum ACTION_NAMESPACE {
-  POST = 'POST',
-  PROJECT = 'PROJECT',
+  POST = 'post',
+  PROJECT = 'project',
 }
 
 export default ACTION_NAMESPACE;

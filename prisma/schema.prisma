@@ -13,10 +13,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model PostLike {
-  id    Int      @id @default(autoincrement())
-  slug  String   @unique
-  count Int      @default(0)
+model Like {
+  id        Int      @id @default(autoincrement())
+  namespace String
+  slug      String
+  count     Int      @default(0)
 
-  @@map("post_likes")
+  @@unique([namespace, slug])
+  @@map("likes")
 }
