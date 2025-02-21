@@ -1,0 +1,1 @@
+export { ScrollLinked } from './ui';

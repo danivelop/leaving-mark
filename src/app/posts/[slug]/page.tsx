@@ -12,6 +12,7 @@ import {
   TableOfContents,
 } from '@/features/table-of-contents';
 import { Space } from '@/shared/ui';
+import { ScrollLinked } from '@/widgets/scroll-linked';
 
 import type { Metadata } from 'next';
 
@@ -43,45 +44,48 @@ function PostPage({ params }: PostPageProps) {
   );
 
   return (
-    <section className="layout-width">
-      <aside className="sticky top-[136px] h-0 ml-[780px] hidden xl:block text-sm z-10">
-        {tableOfContents}
-      </aside>
-      <aside className="fixed left-full top-0 block xl:hidden text-sm z-30">
-        <InteractiveTocWrapper>{tableOfContents}</InteractiveTocWrapper>
-      </aside>
-      <ActionButtons
-        className="justify-end"
-        slug={post.slug}
-        namespace={ACTION_NAMESPACE.POST}
-        actionTypes={[
-          ACTION_TYPE.LIKES,
-          ACTION_TYPE.BOOKMARK,
-          ACTION_TYPE.SHARE,
-        ]}
-      />
-      <Space className="h-8" />
-      <article>
-        <PostDetail post={post} />
-      </article>
-      <Space className="h-16" />
-      <ActionButtons
-        className="justify-end"
-        slug={post.slug}
-        namespace={ACTION_NAMESPACE.POST}
-        actionTypes={[
-          ACTION_TYPE.LIKES,
-          ACTION_TYPE.BOOKMARK,
-          ACTION_TYPE.SHARE,
-        ]}
-      />
-      <hr className="block my-8 border-zinc-200 dark:border-zinc-700" />
-      <RelatedPosts currentPost={post} allPosts={posts} />
-      <Space className="h-6 xs:h-8" />
-      <PreviousNextPost currentPost={post} allPosts={posts} />
-      <Space className="h-8 xs:h-12" />
-      <Utterances />
-    </section>
+    <>
+      <ScrollLinked />
+      <section className="layout-width">
+        <aside className="sticky top-[136px] h-0 ml-[780px] hidden xl:block text-sm z-10">
+          {tableOfContents}
+        </aside>
+        <aside className="fixed left-full top-0 block xl:hidden text-sm z-30">
+          <InteractiveTocWrapper>{tableOfContents}</InteractiveTocWrapper>
+        </aside>
+        <ActionButtons
+          className="justify-end"
+          slug={post.slug}
+          namespace={ACTION_NAMESPACE.POST}
+          actionTypes={[
+            ACTION_TYPE.LIKES,
+            ACTION_TYPE.BOOKMARK,
+            ACTION_TYPE.SHARE,
+          ]}
+        />
+        <Space className="h-8" />
+        <article>
+          <PostDetail post={post} />
+        </article>
+        <Space className="h-16" />
+        <ActionButtons
+          className="justify-end"
+          slug={post.slug}
+          namespace={ACTION_NAMESPACE.POST}
+          actionTypes={[
+            ACTION_TYPE.LIKES,
+            ACTION_TYPE.BOOKMARK,
+            ACTION_TYPE.SHARE,
+          ]}
+        />
+        <hr className="block my-8 border-zinc-200 dark:border-zinc-700" />
+        <RelatedPosts currentPost={post} allPosts={posts} />
+        <Space className="h-6 xs:h-8" />
+        <PreviousNextPost currentPost={post} allPosts={posts} />
+        <Space className="h-8 xs:h-12" />
+        <Utterances />
+      </section>
+    </>
   );
 }
 
