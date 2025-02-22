@@ -1,6 +1,7 @@
 'use client';
 
 import { Sun, Moon } from 'lucide-react';
+import { motion } from 'motion/react';
 import { useEffect } from 'react';
 
 import { useStore } from '@/store';
@@ -23,14 +24,15 @@ function DarkModeButton() {
   };
 
   return (
-    <button
+    <motion.button
       type="button"
       onClick={handleClick}
       className="p-2 rounded-full text-theme-700 hover:bg-theme-700 hover:text-zinc-100 transition-colors"
       aria-label="Toggle dark mode"
+      whileTap={{ scale: 0.9 }}
     >
       {isDarkMode ? <Sun className="size-5" /> : <Moon className="size-5" />}
-    </button>
+    </motion.button>
   );
 }
 

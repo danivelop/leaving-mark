@@ -8,6 +8,7 @@ import {
   Github,
   ExternalLink,
 } from 'lucide-react';
+import { motion } from 'motion/react';
 import { useEffect, useState } from 'react';
 
 import { ACTION_NAMESPACE, ACTION_TYPE } from '@/features/action-button/consts';
@@ -111,12 +112,13 @@ function ActionButtons({
       {actionTypes.map((actionType) => {
         if (actionType === ACTION_TYPE.GITHUB && github) {
           return (
-            <a
+            <motion.a
               key={actionType}
               href={github}
               className="flex items-center h-7 xs:h-8 px-3 py-[6px] rounded-lg transition-colors duration-150 text-zinc-600 hover:text-zinc-100 hover:bg-theme-800 dark:text-zinc-400 dark:hover:text-zinc-100 dark:hover:bg-theme-800 border-theme-800 border box-border text-xs xs:text-sm"
               target="_blank"
               rel="noreferrer"
+              whileTap={{ scale: 0.95 }}
             >
               <span className="sr-only">Navigate to project github link</span>
               <Github
@@ -124,17 +126,18 @@ function ActionButtons({
                 className="size-3 xs:w-4 xs:h-4 mr-1"
               />
               <span>Github</span>
-            </a>
+            </motion.a>
           );
         }
         if (actionType === ACTION_TYPE.DEMO && demo) {
           return (
-            <a
+            <motion.a
               key={actionType}
               href={demo}
               className="flex items-center h-7 xs:h-8 px-3 py-[6px] rounded-lg transition-colors duration-150 text-zinc-600 hover:text-zinc-100 hover:bg-theme-800 dark:text-zinc-400 dark:hover:text-zinc-100 dark:hover:bg-theme-800 border-theme-800 border box-border text-xs xs:text-sm"
               target="_blank"
               rel="noreferrer"
+              whileTap={{ scale: 0.95 }}
             >
               <span className="sr-only">Navigate to project demo link</span>
               <ExternalLink
@@ -142,12 +145,12 @@ function ActionButtons({
                 className="size-3 xs:w-4 xs:h-4 mr-1"
               />
               <span>Demo</span>
-            </a>
+            </motion.a>
           );
         }
         if (actionType === ACTION_TYPE.LIKES) {
           return (
-            <button
+            <motion.button
               key={actionType}
               type="button"
               onClick={handleLike}
@@ -156,6 +159,7 @@ function ActionButtons({
                   ? 'text-theme-700 bg-theme-700/10 hover:bg-theme-800 hover:text-zinc-100 dark:text-theme-400 dark:bg-theme-700/20 dark:hover:bg-theme-800 dark:hover:text-zinc-100'
                   : 'text-zinc-600 hover:text-zinc-100 hover:bg-theme-800 dark:text-zinc-400 dark:hover:text-zinc-100 dark:hover:bg-theme-800'
               } flex items-center h-7 xs:h-8 px-3 py-[6px] rounded-lg transition-colors duration-150 text-xs xs:text-sm`}
+              whileTap={{ scale: 0.95 }}
             >
               <span className="sr-only">project like button</span>
               <ThumbsUp
@@ -172,12 +176,12 @@ function ActionButtons({
                   `${likeCount} Likes`
                 )}
               </span>
-            </button>
+            </motion.button>
           );
         }
         if (actionType === ACTION_TYPE.BOOKMARK && slug) {
           return (
-            <button
+            <motion.button
               key={actionType}
               type="button"
               onClick={handleBookmark}
@@ -186,6 +190,7 @@ function ActionButtons({
                   ? 'text-theme-700 bg-theme-700/10 hover:bg-theme-800 hover:text-zinc-100 dark:text-theme-400 dark:bg-theme-700/20 dark:hover:bg-theme-800 dark:hover:text-zinc-100'
                   : 'text-zinc-600 hover:text-zinc-100 hover:bg-theme-800 dark:text-zinc-400 dark:hover:text-zinc-100 dark:hover:bg-theme-800'
               } flex items-center h-7 xs:h-8 px-3 py-[6px] rounded-lg transition-colors duration-150 text-xs xs:text-sm`}
+              whileTap={{ scale: 0.95 }}
             >
               <span className="sr-only">project bookmark button</span>
               {isBookmarked ? (
@@ -200,16 +205,17 @@ function ActionButtons({
                 />
               )}
               <span>Bookmark</span>
-            </button>
+            </motion.button>
           );
         }
         if (actionType === ACTION_TYPE.SHARE) {
           return (
-            <button
+            <motion.button
               key={actionType}
               type="button"
               onClick={handleShare}
               className="flex items-center h-7 xs:h-8 px-3 py-[6px] rounded-lg transition-colors duration-150 text-zinc-600 hover:text-zinc-100 hover:bg-theme-800 dark:text-zinc-400 dark:hover:text-zinc-100 dark:hover:bg-theme-800 text-xs xs:text-sm"
+              whileTap={{ scale: 0.95 }}
             >
               <span className="sr-only">
                 button to copy project link to share
@@ -219,7 +225,7 @@ function ActionButtons({
                 className="size-3 xs:w-4 xs:h-4 mr-1"
               />
               <span>Share</span>
-            </button>
+            </motion.button>
           );
         }
         return null;
