@@ -24,7 +24,7 @@ function ProjectItem({ project }: ProjectItemProps) {
               width={342}
               height={192}
               alt={`${project.metadata.title} image`}
-              className="w-full min-w-full aspect-[4/3] object-cover object-center transition-transform duration-300 group-hover:scale-105"
+              className="w-full min-w-full h-full min-h-full aspect-[4/3] object-cover object-center transition-transform duration-300 group-hover:scale-105"
             />
             <div className="hidden md:flex flex-col justify-between absolute inset-0 p-4 bg-black opacity-0 group-hover:opacity-70 transition-opacity duration-300">
               {!!project.content && (
@@ -57,7 +57,7 @@ function ProjectItem({ project }: ProjectItemProps) {
             )}
             <Space className="h-2 md:h-1" />
             {project.metadata.tags && (
-              <div className="flex gap-2 flex-wrap">
+              <div className="flex gap-2 flex-nowrap md:flex-wrap overflow-x-auto hide-scrollbar">
                 {project.metadata.tags.map((tag) => (
                   <Badge
                     key={tag}
