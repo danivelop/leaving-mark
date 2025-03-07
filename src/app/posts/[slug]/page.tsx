@@ -1,9 +1,9 @@
 import { getMetadata, getMarkdown, getMarkdowns } from '@/entities/markdown';
-import {
-  ActionButtons,
-  ACTION_NAMESPACE,
-  ACTION_TYPE,
-} from '@/features/action-button';
+// import {
+//   ActionButtons,
+//   ACTION_NAMESPACE,
+//   ACTION_TYPE,
+// } from '@/features/action-button';
 import { Utterances } from '@/features/comment';
 import { PostDetail, RelatedPosts } from '@/features/post-detail';
 import { PreviousNextPost } from '@/features/previous-next-post';
@@ -53,7 +53,7 @@ function PostPage({ params }: PostPageProps) {
         <aside className="fixed left-full top-0 block xl:hidden text-sm z-30">
           <InteractiveTocWrapper>{tableOfContents}</InteractiveTocWrapper>
         </aside>
-        <ActionButtons
+        {/* <ActionButtons
           className="justify-end"
           slug={post.slug}
           namespace={ACTION_NAMESPACE.POST}
@@ -62,13 +62,13 @@ function PostPage({ params }: PostPageProps) {
             ACTION_TYPE.BOOKMARK,
             ACTION_TYPE.SHARE,
           ]}
-        />
+        /> */}
         <Space className="h-8" />
         <article>
           <PostDetail post={post} />
         </article>
         <Space className="h-16" />
-        <ActionButtons
+        {/* <ActionButtons
           className="justify-end"
           slug={post.slug}
           namespace={ACTION_NAMESPACE.POST}
@@ -77,7 +77,7 @@ function PostPage({ params }: PostPageProps) {
             ACTION_TYPE.BOOKMARK,
             ACTION_TYPE.SHARE,
           ]}
-        />
+        /> */}
         <hr className="block my-8 border-zinc-200 dark:border-zinc-700" />
         <RelatedPosts currentPost={post} allPosts={posts} />
         <Space className="h-6 xs:h-8" />
